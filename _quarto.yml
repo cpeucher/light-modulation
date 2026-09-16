@@ -7,6 +7,7 @@ lang: fr
 book:
   title: "Modulation électro-optique"
   author: "Christophe Peucheret"
+  #output-file: "test"
   date: last-modified
   date-format: "DD MMMM YYYY"
   site-url: http://www.cpeu.dk/teaching/modu
