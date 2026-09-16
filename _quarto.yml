@@ -1,0 +1,47 @@
+project:
+  type: book
+  output-dir: _site
+  
+lang: fr  
+
+book:
+  title: "Modulation électro-optique"
+  author: "Christophe Peucheret"
+  date: last-modified
+  date-format: "DD MMMM YYYY"
+  site-url: http://www.cpeu.dk/teaching/modu
+  repo-url: https://github.com/cpeucher/light-modulation
+  repo-branch: main
+  repo-actions: [edit, issue]
+  downloads: pdf
+  chapters:
+    - index.qmd
+    - chapters/notations.qmd
+    - chapters/introduction.qmd
+    - chapters/effet_eo.qmd
+    - chapters/bases_modulation_eo.qmd
+    - chapters/modulateurs_integres.qmd
+    - chapters/autres.qmd
+    - references.qmd
+bibliography: references.bib
+website:
+  reader-mode: true
+
+format:
+  html:
+    theme: cosmo
+    code-fold: true
+    code-summary: "Voir le code"
+    include-in-header: macros_equations.html
+  pdf:
+    documentclass: scrreprt
+    papersize: a4
+    include-in-header: macros_equations.tex
+    header-includes: |
+      \usepackage{ragged2e}
+jupyter: python3
+
+
+
+
+
