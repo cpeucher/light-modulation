@@ -40,9 +40,6 @@ format:
     include-in-header: macros_equations.tex
     header-includes: |
       \usepackage{ragged2e}
+    echo: false
 jupyter: python3
-
-
-
-
 
