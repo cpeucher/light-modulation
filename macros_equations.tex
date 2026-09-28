@@ -1,10 +1,43 @@
-% macros.tex
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\E}[1]{\mathbb{E}\left[ #1 \right]}
-\newcommand{\vectorx}{\mathbf{x}}
+
+%\DeclareMathAlphabet\mathbfcal{OMS}{cmsy}{b}{n}                                 % Cursive letters for real fields
+\DeclareMathAlphabet\mbc{OMS}{cmsy}{b}{n}                                       % Shorthand for \mathbfcal
+
+\DeclareMathOperator{\sinc}{sinc}                                               % cardinal sine (sinc) function
+\DeclareMathOperator{\erf}{erf}                                                 % error function
+\DeclareMathOperator{\erfc}{erfc}                                               % complementary error function
+\DeclareMathOperator{\sgn}{sgn}                                                 % sign function
+\DeclareMathOperator{\sech}{sech}                                               % hyperbolic secant function
+\DeclareMathOperator{\grad}{grad}                                               % gradient operator
+\DeclareMathOperator{\curl}{curl}                                               % curl operator
+\DeclareMathOperator{\rot}{rot}                                                 % curl (rotational) operator
+\DeclareMathOperator{\divergence}{div}                                          % divergence operator
+\DeclareMathOperator*{\argmax}{arg\,max}                                        % argmax
+\DeclareMathOperator*{\argmin}{arg\,min}                                        % argmin
+
+\newcommand{\Sha}{\operatorname{Ш}}                                             % Sha for Dirac Comb. Works in lualatex. Requires \usepackage{unicode-math}.
 
 
-\newcommand\dif{\mathop{}\!\mathrm{d}}    
+
+\newcommand{\rt}{\left(\mathbf{r},t\right)}                                     % space-time argument (r,t)
+\newcommand{\zt}{\left(z,t\right)}                                              % space-time argument (z,t)
+\newcommand{\rw}{\left(\mathbf{r},\omega\right)}                                % space-frequency argument (r,w)
+\newcommand{\zw}{\left(z,\omega\right)}                                         % space-frequency argument (z,w)
+\newcommand{\ltr}{\left(t\right)}                                               % time argument (t)
+\newcommand{\lrr}{\left(\mathbf{r}\right)}                                      % space argument (r)
+\newcommand{\lzr}{\left(z\right)}                                               % space argument (z)
+\newcommand{\lxr}{\left(x\right)}                                               % space argument (x)
+\newcommand{\xy}{\left(x,y\right)}                                              % space argument (x,y)
+\newcommand{\rT}{\left(\mathbf{r}_\perp\right)}                                 % transverse space argument (r_\perp)
+\newcommand{\rperp}{\mathbf{r}_\perp}                                           % transverse vector r_\perp
+\newcommand{\lwr}{\left(\omega\right)}                                          % angular frequency argument (w)
+\newcommand{\zwwo}{\left(z, \omega - \omega_0\right)}                           % space-frequency argument shifted
+\newcommand{\wwo}{\left(\omega - \omega_0\right)}                               % w - w0
+\newcommand{\expwave}{e^{j\left(\omega t - \mathbf{k}\cdot\mathbf{r}\right)}}
+\newcommand{\expwavez}{e^{j\left(\omega_0 t - \mathbf{k}\cdot\mathbf{r}\right)}}
+\newcommand{\expwavezconj}{e^{-j\left(\omega_0 t - \mathbf{k}\cdot\mathbf{r}\right)}}
+
+
+\newcommand\dif{\mathop{}\!\mathrm{d}}                                          % upright differential element
 
 \newcommand{\nablav}{\pmb{\nabla}}                                              % vector nabla (bold)
 \newcommand{\nablap}{\pmb{\nabla}_\perp}                                        % vertor transverse nabla (bold)
@@ -18,8 +51,40 @@
 \newcommand{\transpose}[1]{\ensuremath{#1^{\mathsf{\scriptscriptstyle{T}}}}}    % transpose (with T sans serif, upright)
 \newcommand{\htranspose}[1]{\ensuremath{#1^{\mathsf{\scriptscriptstyle{H}}}}}   % conjugate / Hermitian transpose (with H sans serif, upright)
 
+
+\newcommand*{\tensoru}[1]{\underline{#1}}
 \newcommand*{\tensoruu}[1]{\underline{\underline{#1}}}                          % rank-2 tensor
+\newcommand*{\tensoruuu}[1]{\underline{\underline{\underline{#1}}}}             % rank 3 tensor
+
 
 \newcommand{\tsa}{{T_\mathrm{sa}}}                                              % sampling period Tsa
 \newcommand{\fsa}{{f_\mathrm{sa}}}                                              % sampling frequency fsa
 \newcommand{\wsa}{{\omega_\mathrm{sa}}}                                         % sampling angular frequency wsa
+
+
+
+
+
+\input cyracc.def                                                               % Generates the Sha letter of the Cyrillic alphabet used for Dirac combs
+\font\tencyr=wncysc10
+\def\cyr{\tencyr\cyracc}
+\def\diracComb{\mbox{\cyr SH}}
+
+
+\newcommand{\dottedcolumn}[3]{%
+  \settowidth{\dimen0}{$#1$}
+  \settowidth{\dimen2}{$#2$}
+  \ifdim\dimen2>\dimen0 \dimen0=\dimen2 \fi
+  \begin{pmatrix}\,
+    \vcenter{
+      \kern.6ex
+      \vbox to \dimexpr#1\normalbaselineskip-1.2ex{
+        \hbox{$#2$}
+    \kern3pt
+    \xleaders\vbox{\hbox to \dimen0{\hss.\hss}\vskip4pt}\vfill
+    \kern1pt
+    \hbox{$#3$}
+  }\kern.6ex}\,
+  \end{pmatrix}
+}
+% https://tex.stackexchange.com/questions/114797/vertical-dotted-line-in-column-vector-amsmath-matrix
