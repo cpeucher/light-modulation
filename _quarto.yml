@@ -1,6 +1,9 @@
 project:
   type: book
   output-dir: _site
+
+resources: 
+  - "./assets/siunitx.js"
   
 lang: fr  
 
@@ -17,29 +20,51 @@ book:
   downloads: pdf
   chapters:
     - index.qmd
-    - chapters/notations.qmd
-    - chapters/introduction.qmd
-    - chapters/effet_eo.qmd
-    - chapters/bases_modulation_eo.qmd
-    - chapters/modulateurs_integres.qmd
-    - chapters/autres.qmd
+    - 0-tests.qmd
+    - 0-notations.qmd
+    - 1-introduction.qmd
+    - 2-effet_eo.qmd
+    - 3-bases_modulation_eo.qmd
+    - 4-modulateurs_integres.qmd
+    - 5-autres_methodes.qmd
     - references.qmd
-bibliography: references.bib
+bibliography: "references.bib"
+csl: "optica_mod.csl"
+citation-abbreviations: "journal_abbreviations.json"
+
 website:
   reader-mode: true
+
 
 format:
   html:
     theme: cosmo
     code-fold: true
     code-summary: "Voir le code"
-    include-in-header: macros_equations.html
+    html-math-method: mathjax
+    include-in-header: 
+      - file: macros_equations.html
+      - file: mathjax-config.html
+    number-depth: 2
+    #resource-path: ["figures/png"]
   pdf:
     documentclass: scrreprt
     papersize: a4
-    include-in-header: macros_equations.tex
-    header-includes: |
-      \usepackage{ragged2e}
+    include-in-header: 
+      - text: |
+          \usepackage{unicode-math}
+          \usepackage{ragged2e}
+          \usepackage{siunitx}
+          \sisetup{inter-unit-product = \ensuremath{{}\cdot{}}}
+          \usepackage[version=4]{mhchem}
+      - file: macros_equations.tex
+    number-depth: 2
     echo: false
+    #resource-path: ["figures/pdf"]
 jupyter: python3
+
+
+
+
+
 
