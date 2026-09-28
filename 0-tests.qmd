@@ -1,0 +1,171 @@
+# Tests {.unnumbered}
+
+On this page we perform some tests:
+- Check that equation macros render well in PDF and HTML (MathJax)
+- Test some non-standard MathJax extensions
+- Check that python runs well
+- Check that a proper bibliography is generated
+
+This page has to be commented for final production.
+
+
+## Equation macros 
+
+
+### Vectors and matrices
+
+| macro           | result                 |
+| --------------- | ---------------------- |
+| `\vb`           | $\vb{x}$               |
+| `\vbh`          | $\vbh{x}$              |
+| `\mat`          | $\mat{H}$              |
+| `\op`           | $\op{L}$               |
+| `\transpose`    | $\transpose{\mat{M}}$  |
+| `\htranspose`   | $\htranspose{\mat{M}}$ |
+| `\tensoru`      | $\tensoru{r}$          |
+| `\tensoruu`     | $\tensoruu{r}$         |
+| `\tensoruuu`    | $\tensoruuu{r}$        |
+
+
+
+### Operators
+
+#### Vector Calculus
+
+| macro         | result        |
+| ------------- | ------------- |
+| `\curl`       | $\curl$       |
+| `\divergence` | $\divergence$ |
+| `\grad`       | $\grad$       |
+| `\rot`        | $\rot$        |
+| `\nablav`     | $\nablav$     |
+| `\nablap`     | $\nablap$     |
+| `\dif`        | $\dif$        |
+
+#### Other operators
+
+| macro     | result    |
+| --------- | --------- |
+| `\argmax` | $\argmax$ |
+| `\argmin` | $\argmin$ |
+
+
+### Functions 
+
+| macro   | result      |
+| ------- | ----------- |
+| `\erf`  | $\erf\lxr$  |
+| `\erfc` | $\erfc\lxr$ |
+| `\sech` | $\sech\lxr$ |
+| `\sgn`  | $\sgn\lxr$  |
+| `\sinc` | $\sinc\lxr$ |
+| `\Sha`  | $\Sha\lxr$  |
+
+
+
+
+### Common arguments of functions
+
+| macro           | result          |
+| --------------- | --------------- |
+| `\rt`           | $\rt$           |
+| `\zt`           | $\zt$           |
+| `\rw`           | $\rw$           |
+| `\zw`           | $\zw$           |
+| `\ltr`          | $\ltr$          |
+| `\lrr`          | $\lrr$          |
+| `\lzr`          | $\lzr$          |
+| `\lxr`          | $\lxr$          |
+| `\xy`           | $\xy$           |
+| `\rT`           | $\rT$           |
+| `\rperp`        | $\rperp$        |
+| `\lwr`          | $\lwr$          |
+| `\zwwo`         | $\zwwo$         |
+| `\wwo`          | $\wwo$          |
+| `\expwave`      | $\expwave$      |
+| `\expwavez`     | $\expwavez$     |
+| `\expwavezconj` | $\expwavezconj$ |
+| `\tsa`          | $\tsa$          |
+| `\fsa`          | $\fsa$          |
+| `\wsa`          | $\wsa$          |
+
+
+
+## Chemical formula using `mhchem` package 
+
+We love lithium niobate: $\ce{LiNbO3}$
+
+Works with both PDF (`\usepackage[version=4]{mhchem}`) and HTML (with MathJax) outputs:
+
+[https://docs.mathjax.org/en/v3.0/input/tex/extensions/mhchem.html](https://docs.mathjax.org/en/v3.0/input/tex/extensions/mhchem.html)
+
+
+## Numbers + units using `siunitx` package
+
+For HTML output, we use the MathJax extension [https://github.com/limefrogyank/siunitx-pcc](https://github.com/limefrogyank/siunitx-pcc)
+
+$\qty{25}{\meter\per\second}$ 
+
+
+
+## Python code / graphic 
+
+We test the Matplotlib style sheet `physrev_mplstyle` to be used to generate Physical Review compatible plots. We directly use the example provided on the style sheet repository.
+
+See https://github.com/hosilva/physrev_mplstyle/tree/main
+
+```{python}
+#| label: fig-test_matplotlib
+#| fig-cap: "A simple line plot generated with Matplotlib."
+#| fig-width: 6
+#| fig-height: 4
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+%matplotlib inline
+%config InlineBackend.figure_format='retina'
+
+plt.style.use('physrev.mplstyle')
+plt.rcParams['figure.dpi'] = "200"
+
+f, ax = plt.subplots(1, 1)
+
+x = np.linspace(0, 1)
+s = np.flip(np.arange(1, 1 + 9/10., 1/10))
+
+for slope in s:
+    ax.plot(x, slope * x, label="{:0.1f}".format(slope))
+
+ax.set_xlim(0, 1);
+ax.set_ylim(0, 2);
+
+ax.set_xlabel(r'$x$')
+ax.set_ylabel(r'$y = s \, x$')
+
+ax.legend(ncol=3)
+ax.get_legend().set_title(r"Values of $s$")  
+ax.grid()
+
+# For Mathematica default palette
+# filename = 'example'
+
+# For gnuplot default palette
+# filename = 'example_gp'
+
+# For README
+# plt.savefig(filename + '.png', dpi=600) 
+
+# For paper:
+# plt.savefig(filename + '.pdf')
+```
+
+## Include a figure 
+
+![This is a test figure](./figures/fig_modu_eo_longitudinal_configuration)
+
+
+## Bibliography
+
+As wisely said in [@Liang_jstqe_24_v30_p1000606] and [@Li_jlt_03_v21_p2010], modulators are great!
+
