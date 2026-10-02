@@ -1,0 +1,102 @@
+# Présentation {.unnumbered}
+
+Ces notes de cours sur les modulateurs exploitant l'effet électro-optique ("effet Pockels") sont rédigées à l'intention des étudiants en photonique de l'[École Nationale Supérieure de Sciences Appliquée et de Technologie (ENSSAT)](https://www.enssat.fr/fr_FR){target=_blank} de Lannion, une composante de [l'Université de Rennes ](https://www.univ-rennes.fr){target=_blank}.
+
+Elles supportent un module relativement court (12 heures) traitant de la **Modulation de la lumière** et couvrant :
+
+1. Modulation électro-optique, objet des présentes notes (6 heures) ;
+2. Modulation acousto-optique, couverte dans un polycopié de cours distinct (Thierry Chartier ; 6 heures). Voir [site Moodle](https://foad.univ-rennes.fr/course/view.php?id=1008406){target=_blank}.
+
+
+## Objectifs d'apprentissage
+
+Après avoir suivi le module, l'étudiant sera capable de :
+
+- **décrire** le fonctionnement de modulateurs électro-optiques utilisant l'effet Pockels ;
+- **expliquer** les limites des différentes structures de modulateur grâce à l'utilisation de métriques adaptées ;
+- **comparer** les performances de modulateurs électro-optiques réalisés sur différentes plateformes technologiques ;
+- **distinguer** les propriétés des modulateurs électro-optiques de celles d'autres techniques de modulation.
+
+
+## Pré-requis
+
+Ce cours repose sur des connaissances sur les milieux anisotropes et sur la propagation d'une onde électromagnétique dans de tels milieux, ainsi que sur les anisotropies induites (effet électro-optique, dit "effet Pockels").
+
+Pour les étudiants de l'ENSSAT, ces pré-requis sont couverts dans le cours de 1^re^ année :
+
+M. Barbier, [PHOT 1 - Cours d'Optique linéaire anisotrope](https://formations.univ-rennes.fr/enseignement/optique-lineaire-anisotrope-t6ps414m){target=_blank}, ENSSAT, Université de Rennes [[Moodle]](https://foad.univ-rennes.fr/course/view.php?id=1008386){target=_blank}.
+
+Quelques rappels (sans démonstrations) seront effectués et font l'objet du chapitre [@sec-aniso].
+
+Idéalement, des notions de propagation guidée sont souhaitées, mains non indispensables, pour tirer le meilleur parti de la description des modulateurs intégrés qui fait l'objet du chapitre[@sec-modu-eo-integrated].
+
+Pour les étudiants de l'ENSSAT, ces notions sont abordées dans le cours de 2^e^ année se déroulant en parallèle de celui-ci :
+
+T. Chartier, [PHOT 2 - Cours de propagation guidée](https://formations.univ-rennes.fr/enseignement/propagation-guidee-t7ps534m){target=_blank}, ENSSAT, Université de Rennes [[Moodle]](https://foad.univ-rennes.fr/course/view.php?id=1008409){target=_blank}.
+
+
+## Site Moodle
+
+Pour les étudiants de l'ENSSAT, un [site Moodle](https://foad.univ-rennes.fr/course/view.php?id=1008406){target=_blank} est également disponible.
+
+Il contient :
+
+- la partie modulation acousto-optique du cours ;
+- des compléments, problèmes, solutions, annales d'évaluation du module, etc.
+
+
+## Comment citer ce document
+
+C. Peucheret, "Modulation électro-optique," Université de Rennes (2026).
+
+```{bibtex}
+@misc{meo,
+  author       = {Peucheret, C.},
+  title        = {Modulation électro-optique},
+  year         = {2026},
+  howpublished = {\url{https://www.cpeu.dk/}}
+}
+```
+
+
+## Détails techniques
+
+Ce document a été réalisé en utilisant [Quarto](https://quarto.org){target=_blank}.
+
+Les graphes réalisés en python matplotlib utilise la feuille de style `physrev_mplstyle` disponible [ici](https://github.com/hosilva/physrev_mplstyle){target=_blank}.
+
+Pour ce premier projet de notes de cours utilisant Quarto (et en francais qui plus est), je me suis inspiré de\ :
+
+- [https://github.com/fuhrmanator/log210-ndc-quarto](https://github.com/fuhrmanator/log210-ndc-quarto){target=_blank}
+- [https://github.com/r-devel/rdevguide](https://github.com/r-devel/rdevguide){target=_blank}
+- ...
+
+
+
+
+## Licence 
+
+:::: {.callout}
+
+::: {layout="[12,-1,40]" layout-valign="center"}
+![](figures/png/by-nc-sa.png) 
+
+\justifying\small Sauf indications contraires, le contenu de ce manuel électronique est disponible 
+en vertu des termes de la [Licence Creative Commons Attribution - Utilisation non commerciale - Partage dans les mêmes conditions 4.0 International](https://creativecommons.org/licenses/by/4.0/deed.fr){target=_blank}.
+:::
+
+::: hanging-indent
+**Vous êtes autorisé à :**\
+**Partager** -- copier, distribuer et communiquer le matériel par tous moyens et sous tous formats\
+**Adapter** -- remixer, transformer et créer à partir du matériel
+    L'Offrant ne peut retirer les autorisations concédées par la licence tant que vous appliquez les termes de cette licence.
+:::
+
+::: hanging-indent
+**Selon les conditions suivantes :**\
+**Attribution** -- Vous devez créditer l'Œuvre, intégrer un lien vers la licence et indiquer si des modifications ont été effectuées à l'Œuvre. Vous devez indiquer ces informations par tous les moyens raisonnables, sans toutefois suggérer que l'Offrant vous soutient ou soutient la façon dont vous avez utilisé son Œuvre.\
+**Pas d’Utilisation Commerciale** -- Vous n'êtes pas autorisé à faire un usage commercial de cette Œuvre, tout ou partie du matériel la composant.\
+**Partage dans les Mêmes Conditions** -- Dans le cas où vous effectuez un remix, que vous transformez, ou créez à partir du matériel composant l'Œuvre originale, vous devez diffuser l'Œuvre modifiée dans les même conditions, c'est à dire avec la même licence avec laquelle l'Œuvre originale a été diffusée.\
+**Pas de restrictions complémentaires** -- Vous n'êtes pas autorisé à appliquer des conditions légales ou des mesures techniques qui restreindraient légalement autrui à utiliser l'Œuvre dans les conditions décrites par la licence.
+:::
+::::
