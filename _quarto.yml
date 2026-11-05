@@ -2,10 +2,13 @@ project:
   type: book
   output-dir: _site
 
-resources: 
+resources:
   - "./assets/siunitx.js"
   
-lang: fr  
+lang: fr
+language:
+  crossref-eq-prefix: ""
+  crossref-fig-prefix: "figure"
 
 book:
   title: "Modulation électro-optique"
@@ -20,21 +23,23 @@ book:
   downloads: pdf
   chapters:
     - index.qmd
-    - 0-tests.qmd
-    - 0-notations.qmd
-    - 1-introduction.qmd
-    - 2-effet_eo.qmd
-    - 3-bases_modulation_eo.qmd
-    - 4-modulateurs_integres.qmd
-    - 5-autres_methodes.qmd
+    - chapters/0-tests.qmd
+    - chapters/0-notations.qmd
+    - chapters/1-introduction_modulation.qmd
+    - chapters/2-effet_eo.qmd
+    - chapters/3-bases_modulation_eo.qmd
+    - chapters/4-modulateurs_integres.qmd
+    - chapters/5-autres_methodes.qmd
     - references.qmd
-bibliography: "references.bib"
+bibliography: 
+  #"references.bib"
+  "C:/_cpeu/bibliographies/bibfiles/library.bib"
+
 csl: "optica_mod.csl"
 citation-abbreviations: "journal_abbreviations.json"
 
 website:
   reader-mode: true
-
 
 format:
   html:
@@ -47,6 +52,9 @@ format:
       - file: mathjax-config.html
     number-depth: 2
     #resource-path: ["figures/png"]
+    #resource-path: 
+      #- "../figures/png"
+    include-after-body: "assets/reflinks.js"
   pdf:
     documentclass: scrreprt
     papersize: a4
@@ -57,14 +65,17 @@ format:
           \usepackage{siunitx}
           \sisetup{inter-unit-product = \ensuremath{{}\cdot{}}}
           \usepackage[version=4]{mhchem}
+          \usepackage{xcolor}
+          \definecolor{mred}{rgb}{0.7,0,0.1}
       - file: macros_equations.tex
     number-depth: 2
     echo: false
     #resource-path: ["figures/pdf"]
+    link-citations: true
+    link-bibliography: true
+    keep-tex: true
+    fig-pos: t
 jupyter: python3
 
-
-
-
-
-
+execute:
+  freeze: auto
