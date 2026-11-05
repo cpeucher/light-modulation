@@ -1,6 +1,7 @@
 # Tests {.unnumbered}
 
 On this page we perform some tests:
+
 - Check that equation macros render well in PDF and HTML (MathJax)
 - Test some non-standard MathJax extensions
 - Check that python runs well
@@ -15,17 +16,20 @@ This page has to be commented in `_quarto.yml` for final production.
 
 ### Vectors and matrices
 
-| macro           | result                 |
-| --------------- | ---------------------- |
-| `\vb`           | $\vb{x}$               |
-| `\vbh`          | $\vbh{x}$              |
-| `\mat`          | $\mat{H}$              |
-| `\op`           | $\op{L}$               |
-| `\transpose`    | $\transpose{\mat{M}}$  |
-| `\htranspose`   | $\htranspose{\mat{M}}$ |
-| `\tensoru`      | $\tensoru{r}$          |
-| `\tensoruu`     | $\tensoruu{r}$         |
-| `\tensoruuu`    | $\tensoruuu{r}$        |
+| macro         | result                 |
+| ------------- | ---------------------- |
+| `\mbc`        | $\mbc{E}$              |
+| `\mathbfcal`  | $\mathbfcal{E}$        |
+| `\mathcal`    | $\mathcal{E}$          |
+| `\vb`         | $\vb{x}$               |
+| `\vbh`        | $\vbh{x}$              |
+| `\mat`        | $\mat{H}$              |
+| `\op`         | $\op{L}$               |
+| `\transpose`  | $\transpose{\mat{M}}$  |
+| `\htranspose` | $\htranspose{\mat{M}}$ |
+| `\tensoru`    | $\tensoru{r}$          |
+| `\tensoruu`   | $\tensoruu{r}$         |
+| `\tensoruuu`  | $\tensoruuu{r}$        |
 
 
 
@@ -120,8 +124,7 @@ See [https://github.com/hosilva/physrev_mplstyle/tree/main](https://github.com/h
 ```{python}
 #| label: fig-test_matplotlib
 #| fig-cap: "A simple line plot generated with Matplotlib."
-#| fig-width: 6
-#| fig-height: 4
+
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -130,7 +133,7 @@ import matplotlib.pyplot as plt
 %config InlineBackend.figure_format='retina'
 
 plt.style.use('../physrev.mplstyle')
-plt.rcParams['figure.dpi'] = "200"
+#plt.rcParams['figure.dpi'] = "200"
 
 f, ax = plt.subplots(1, 1)
 
@@ -163,11 +166,37 @@ ax.grid()
 # plt.savefig(filename + '.pdf')
 ```
 
+
+```{python}
+#| label: fig-line-plot
+#| fig-cap: "A simple line plot generated with Matplotlib."
+
+
+#import matplotlib.pyplot as plt
+#import numpy as np
+
+
+
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
+
+plt.plot(x, y)
+plt.show()
+```
+
+
+
 ## Include a static figure 
 
-![Longitudinal configuration of an electro optic modulator](../figures/fig_modu_eo_longitudinal_configuration){#fig-modu_long width=50%}
+![Longitudinal configuration of an electro optic modulator](../figures/fig_modu_eo_longitudinal_configuration){#fig-test-long width=50%}
+
+As can be seen in @fig-test-long...
 
 
+
+## Lipsum 
+
+{{< lipsum 2 >}}
 
 ## Some highligted content
 
@@ -177,6 +206,30 @@ From: [https://quarto.org/docs/authoring/callouts.html](https://quarto.org/docs/
 Note that there are five types of callouts, including:
 `note`, `warning`, `important`, `tip`, and `caution`.
 :::
+
+::: {.callout-note}
+Example of default `note` callout 
+:::
+
+::: {.callout-warning}
+Example of default `warning` callout 
+:::
+
+::: {.callout-important}
+Example of default `important` callout  
+:::
+
+::: {.callout-tip}
+Example of default `tip` callout 
+:::
+
+::: {.callout-caution}
+Example of default `caution` callout 
+:::
+
+More advanced features :
+
+
 
 ::: {.callout-tip}
 ## Tip with Title
