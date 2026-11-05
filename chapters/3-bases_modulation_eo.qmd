@@ -1,0 +1,390 @@
+# Modulation électro-optique {#sec-eo-basics}
+
+
+## Introduction {#sec-eo-basics-intro}
+
+Nous avons vu dans le chapitre précédent comment l'application d'un champ électrique externe modifie, via l'effet Pockels, les propriétés anisotropes de certains milieux cristallins. Il nous reste à transformer cet effet physique en levier pour modifier les caractéristiques (polarisation, phase, amplitude, fréquence) d'une onde optique. Dans ce chapitre, nous allons décrire les grands principes de la modulation électro-optiques Nous utiliserons d'abord le $\ce{KDP}$, dont les propriétés électro-optiques ont été étudiées comme exemple dans la section xx, afin d'examiner comment induire un retard de phase entre deux états propres et examinerons différentes configurations possibles du champ électrique externe appliqué par rapport à la direction de propagation. Dans un deuxième temps, sur la base d'un cristal électro-optique très largement utilisé dans les modulateurs commerciaux, le niobate de lithium, nous verrons comment réaliser de manière concrète des modulateurs de phase, de polarisation et d'intensité. Enfin, nous considérerons la problématique de la rapidité de modulation et identifierions les mécanismes responsables de la limite en bande passante des modulateurs et les moyens d'augmenter cette bande passante.
+
+
+## Cellule de Pockels {#sec-eo-basics-pockels}
+
+Nous considérons à nouveau un cristal de KDP, comme étudié dans le chapitre 
+
+
+
+### Configuration longitudinale {#sec-eo-basics-pockels-long}
+
+
+![Configuration longitudinale d'un modulateur électro-optique réalisé avec un cristal de KDP.](../figures/fig_modu_eo_longitudinal_configuration){#fig-modu_long width=50%}
+
+Nous considérons la configuration représentée sur la @fig-modu_long où une onde lumineuse de longueur d'onde $\lambda_0$ se propage selon la direction $\vbh{z}$ et où un champ électrique externe d'amplitude $E_a$ est appliqué selon la même direction. Ce champ peut être créé par l'application d'une tension $V$ sur des électrodes déposées sur les deux facettes du cristal orthogonales à $\vbh{z}$. On parlera dans ce cas de **configuration longitudinale** puisque la direction de propagation de la lumière est identique à celle du champ externe $\vb{E}_a = E_a \vbh{z}$. La longueur du cristal (selon la direction de propagation) est $l$.
+
+Comme vu dans la section x.x, les axes principaux du cristal sont $\vbh{x}'$ et $\vbh{y}'$. Ce sont des axes propres par rapport à l'état de polarisation. Ainsi, une onde polarisée selon
+$$
+\vbh{d}' = \vbh{x}'
+$$ {#eq-}
+préservera son état de polarisation lors de la traversée du cristal et "verra" un indice 
+$$
+n_{x'}=n_o - \frac{1}{2}n_o^3\; r_{63}\;E_{az}.
+$$ {#eq-long-kdp-nxp}
+Elle subira donc un déphasage de 
+$$
+\phi_{x'} = \frac{2\pi}{\lambda_0} n_{x'} l
+$$ {#eq-}
+lors de la traversée du cristal.
+
+De même, une onde polarisée selon
+$$
+\vbh{d}'' = \vbh{y}'
+$$ {#eq-}
+demeurera polarisée selon cette même direction et "verra" un indice 
+$$
+n_{y'} \approx n_o + \frac{1}{2}n_o^3\; r_{63}\;E_{az}.
+$$ {#eq-long-kdp-nyp}
+Cette onde subira en conséquence un déphasage de
+$$
+\phi_{y'} = \frac{2\pi}{\lambda_0} n_{y'} l.
+$$ {#eq-}
+
+Comme les axes principaux sont orthogonaux, on pourra décomposer le champ d'une onde polarisée arbitrairement en entrée du cristal selon $\vbh{x}'$ et $\vbh{y}'$. Ainsi
+$$
+\vbh{D}\left(0\right) = D_{0x'}  \vbh{x}' + D_{0y'} \vbh{y}'.
+$$ {#eq-}
+Les axes principaux étant par définition des axes propres, on pourra aisément calculer le champ à n'importe quelle position $z$ le long de la direction $\vbh{z}$. En particulier en sortie du cristal, pour $z = l$
+$$
+\vbh{D}\left(l\right) = D_{0x'}\; e^{-j\frac{2\pi}{\lambda_0} n_{x'}l}\; \vbh{x}' + D_{0y'} \; e^{-j\frac{2\pi}{\lambda_0} n_{y'}l}\;\vbh{y}'.
+$$ {#eq-}
+L'état de polarisation en sortie dépend du déphasage relatif entre les projections du champ $D?$ selon les deux axes principaux $\vbh{x}'$ et $\vbh{y}$. Ce déphasage relatif, ou retard de phase, s'exprime donc selon
+$$
+\Gamma\left(l\right) = \frac{2\pi}{\lambda_0}\left(n_{y'} - n_{x'}\right) l.
+$$ {#eq-long-kdp-retardation-def}
+Substituant les expressions des indices $n_{x}'$ et $n_{y}'$ selon @eq-long-kdp-nxp et @eq-long-kdp-nyp, 
+$$
+\Gamma\left(l\right)=\frac{2\pi}{\lambda_0}\;n_o^3 \;r_{63}E_{az}l.
+$$ {#eq-long-kdp-retardation}
+Enfin, pour la configuration longitudinale, l'amplitude du champ électrique externe est reliée à la tension $V$ appliquée entre les électrodes selon
+$$
+V = E_{az} l.
+$$ {#eq-long-voltage-field}
+On obtient donc l'expression suivante pour le retard de phase en sortie du cristal
+$$
+\Gamma\left(l\right)=\frac{2\pi}{\lambda_0}\;n_o^3 \;r_{63}V.
+$$ {#eq-long-kdp-retardation-voltage}
+On voit donc que le retard de phase, qui détermine l'état de polarisation en sortie, est proportionnel à la tension appliquée $V$. Nous avons donc réalisé une lame de phase contrôlée en tension. En particulier, pour obtenir une lame demi-onde, correspondant à un retard de phase de $\pi$, il faudra appliquer une tension
+$$
+V_\pi=\frac{\lambda_0}{2n_o^3\;r_{63}}.
+$$ {#eq-long-kdp-vpi}
+On pourra ainsi réécrire @eq-long-kdp-retardation-voltage selon
+$$
+\Gamma = \pi\frac{V}{V_\pi}.
+$$ {#eq-retardation-vpi-general}
+Le paramètre $V_\pi$ est appelé **tension demi-onde**. Il exprime la tension à appliquer au cristal afin d'obtenir un retard de phase de $\pi$ entre les états principaux. Il dépend de la configuration employée (ici longitudinale), ainsi que de paramètres propres au cristal, ici $n_o$ et $r_{63}$. L'intérêt de l'écriture @eq-retardation-vpi-general est que tous les paramètres propres au cristal sont dissimulés dans la tension demi-onde $V_\pi$. On pourra ainsi comparer différent matériaux, voire différentes configurations, par la seule donnée de $V_\pi$, sans avoir à connaître les spécificités d'implémentation ni les paramètres du cristal. Les fabricants de modulateurs électro-optiques fournissent donc la valeur de $V_\pi$ dans les data-sheet, comme illustré ...
+
+Toutes autres performances égales par ailleurs, on cherchera en général un modulateur pour lequel la tension demi-onde est la plus faible possible. 
+
+::: {.callout-important}
+## À retenir
+La tension demi-onde d'un modulateur électro-optique, notée $V_\pi$ est la tension à appliquer afin de réaliser un retard de phase de $\pi$. Cette grandeur permet de faire abstraction des paramètres propres au cristal utilisé et de la configuration des champs. Elle rend possible la comparaison entre différents matériaux et différentes configurations. On cherchera en général à minimiser la valeur de $V_\pi$, ce qui traduit la réalisation du même effet pour une tension appliquée plus faible.
+:::
+
+
+Il est instructif de calculer la valeur de la tension demi-onde pour un cristal de KDP utilisé en configuration longitudinale. Si nous considérons un modulateur prévu pour fonctionner à $\lambda_0 =$ 633 nm, qui correspond à la longueur d'onde d'un laser \ce{HeNe} avec, pour le KDP, $n_o$ = 1.5074 et $r_{63}= 11 \times 10^{-12}$ m/V, on trouve $V_\pi \approx$ 8400 V! C'est une tension considérable à appliquer pour induire un retard de phase de $V_\pi$.
+Pour de nombreuses applications, nous chercherons à moduler le faisceau optique à des cadences très élevées. Dans un système de communications optiques à très haut débit contemporain, le débit est de l'ordre de plusieurs dizaines de Gbd, ce qui implique de changer le retard de phase plusieurs dizaines de milliards de fois par seconde, à partir d'un signal électrique de commande dont l'amplitude est en générale assez modeste, typiquement inférieure au volt. Les amplificateurs électriques résultant de manière générale d'un compromis entre gain et bande passante, obtenir une tension de $V_\pi$ à de tels débits n'est pas réaliste.
+
+Nous allons voir par la suite qu'il est possible de réduire de manière significative la tension demi-onde d'un modulateur électro-optique en adoptant une **configuration transverse**, qui fera l'objet de la section @sec-modu-eo-princip-pockels-trans.
+
+Par ailleurs, une difficulté pratique de la configuration longitudinale est liée au dépôt d'électrodes métalliques sur les facettes du cristal alors que l'onde lumineuse doit être injectée par ces mêmes facettes (on se réfèrera de nouveau à la @fig-modu_long). Or les ondes électromagnétiques, dont les ondes optiques, se propagent mal dans les métaux. Leur champ électrique est nul, hormis dans une très faible épaisseur à l'interface, connue sous le nom d'épaisseur de peau. On a donc une difficulté d'injection de l'onde lumineuse dans le cristal. Ce problème sera également résolu par l'adoption d'une configuration transverse.
+
+
+
+### Configuration transverse {#sec-eo-basics-pockels-trans}
+
+![Configuration transverse d'un modulateur électro-optique réalisé avec un cristal de KDP.](../figures/fig_modu_eo_transverse_configuration){#fig-modu_trans width=50%}
+
+On s'intéresse maintenant à la configuration représentée sur la @fig-modu_trans. Dans cette configuration, le champ électrique externe est toujours appliqué selon la direction $\vbh{z}$ afin de bénéficier du coefficient électro optique $r_{63}$, le plus élevé pour le KDP. Ce champ est induit par une tension $V$ appliquée sur des électrodes déposées sur les deux facettes du cristal orthogonales à $\vbh{z}$. La direction de propagation de l'onde lumineuse est maintenant $\vbh{y}'$. On observera que dans cette configuration, le champ optique n'est plus injecté dans le cristal par les facettes où les électrodes sont déposées. La longueur de propagation dans le cristal (selon l'axe $\vbh{y}'$) sera toujours noté $l$, tandis que l'épaisseur du cristal (selon l'axe $\vbh{z}$) est notée $e$.
+
+Selon la construction de l'ellipsoïde des indices, pour une propagation selon $\vbh{y}'$, les axes principaux sont 
+$$
+\vbh{d}' = \vbh{z}
+$$
+avec indice principal
+$$
+n_z = n_e
+$$
+et 
+$$
+\vbh{d}'' = \vbh{x}'
+$$
+avec indice principal
+$$
+n_{x'}=n_o-\frac{1}{2}n_o^3\; r_{63}\;E_{az}.
+$$
+De manière similaire à l'étude de la configuration longitudinale, nous pouvons définir le retard de phase relatif entre les états principaux, qui s'exprime selon
+$$
+\Gamma(l)=\frac{2\pi}{\lambda_0}\left(n_z - n_{x'}\right)l = \frac{2\pi}{\lambda_0}\left(n_e-n_0\right)l+\frac{\pi n_o^3 \;r_{63}E_{az}l}{\lambda_0}.
+$$
+On observe que ce retard de phase est composé de deux contributions, une contribution statique (qui ne dépend pas du champ électrique externe) et une contribution induite (proportionnelle à l'amplitude du champ électrique externe $E_a$). Selon les applications la contribution statique peut-être compensée ou ignorée. Nous nous intéresserons par la suite uniquement à la contribution induite.
+
+La spécificité de la configuration transverse est que le retard de phase ne s'accumule pas selon la même direction que le champ électrique externe appliqué. Dans cette configuration, ce champ est relié à la tension $V$ appliquée entre les électrodes selon
+$$
+V = E_{az} e.
+$$ {#eq-trans-voltage-field}
+Nous voyons donc que la dimension du cristal qui importe ici est son épaisseur $e$, tandis que le retard de phase s'accumule sur sa longueur $l$. Ceci contraste avec la configuration longitudinale où seule la longueur $l$ intervenait.
+
+Nous pouvons ainsi exprimer le retard de phase induit en fonction de la tension appliquée
+$$
+\Gamma=\frac{\pi n_o^3 \;r_{63}V}{\lambda_0}\left(\frac{l}{e}\right),
+$$ {#eq-long-kdp-retardation-voltage}
+et en déduire la tension demi-onde dans la configuration transverse
+$$
+V_{\pi}=\frac{\lambda_0}{n_o^3 \;r_{63}}\color{mred}{\left(\frac{e}{l}\right)}.
+$$ {#eq-trans-kdp-vpi}
+En comparant cette expression de $V_\pi$ avec celle obtenue pour la configuration longitudinale @eq-eq-long-kdp-vpi, une différence majeure apparait : l'existence d'un **facteur de forme** $e/l$, rapport entre l'épaisseur du cristal et sa longueur. Nous avions vu que dans la configuration longitudinale, les tensions à appliquer pour obtenir un retard de phase induit de $\pi$ étaient prohibitives. Dans la configuration transverse, il devient possible de diminuer la valeur de $V_\pi$ en jouant sur le facteur de forme $e/l$.
+
+Grâce à l'implémentation d'une configuration transverse, on pourra ainsi réduire la tension demi-onde du modulateur
+
+- en augmentant la longueur $l$ du cristal ;
+- en réduisant son épaisseur $e$.
+
+On ne pourra cependant pas augmenter $l$ ou réduire $e$ de manière arbitraire. De manière évidente, augmenter $l$ résulte en un encombrement accru du modulateur. De plus, nous verrons dans le @sec-modu-eo-principles-transit qu'une augmentation de $l$ s'accompagne en général d'une réduction de la bande passante du modulateur. L'épaisseur $e$ est quant à elle contrainte par les dimensions transverses du faisceau lumineux. L'extension minimale d'un faisceau lumineux dans un milieu homogène (cristal massif) d'indice de réfraction $n$ est de l'ordre de $\lambda_0 /2n$. Les modulateurs rapides que nous étudierons par la suite dans @sec-eo-integrated utilisent des structures de guides d'ondes dans lesquels la lumière se propage de manière confinée dans une zone d'indice de réfraction plus élevée que celui du milieu environnant, de manière analogue au principe de fonctionnement des fibres optiques à guidage par l'indice (pour les étudiants de l'ENSSAT, voir votre cours de Propagation guidée se déroulant en parallèle de celui-ci). Ici aussi, l'épaisseur du cristal ne pourra pas être arbitrairement petite du fait de la distribution transverse du mode optique, en lien avec la longueur d'onde.
+
+Nous discuterons dans le chapitre @sec-eo-integrated de structures réelles de modulateurs intégrés compatibles avec de nombreuses applications (dont les télécommunications optiques). Dans l'immédiat, nous pouvons nous contenter d'ordres de grandeur. Un ordre de grandeur raisonnable pour l'épaisseur du cristal sera donc de l'ordre de la longueur d'onde. Prenons 
+$$
+e = 1~\mu\textrm{m}.
+$$
+Une longueur pratique sera de l'ordre d'au plus quelques centimètres. Prenons
+$$
+l = 1~\textrm{cm}.
+$$
+Nous trouvons donc pour le facteur de forme apparaissant dans l'écriture de la tension demi-onde @eq-trans-kdp-vpi
+$$
+\frac{e}{l}= 10^{-4}
+$$
+Ceci nous fait donc passer pour $V_pi$ de l'ordre de plusieurs milliers de volts en configuration longitudinale à quelques centaines de millivolts en configuration transverse. 
+
+
+::: {.callout-important}
+## À retenir
+L'utilisation d'une configuration transverse permet de réduire de manière significative la tension demi-onde d'un modulateur électro-optique par rapport à celle obtenue avec une configuration longitudinale.
+:::
+
+On comprend donc l'intérêt pratique d'une telle configuration, qui sera adoptée dans tous les exemples de modulateurs que nous étudierons par la suite.
+
+
+
+
+## Modulateur {#sec-eo-basics-mods}
+
+Après avoir posé les bases de la modulation électro-optique, c'est-à-dire comment induire un retard de phase en fonction d'une tension appliquée sur des électrodes déposées sur les facettes d'un cristal électro-optique, nous allons maintenant voir comment utiliser ces résultats pour construire des structures de modulateurs permettant, comme introduit dans le chapitre @sec_intro, de modifier les attributs d'une onde optique, à savoir sa phase, sa polarisation ou son intensité. Tout cristal présentant un effet Pockels, dont le $\ce{KDP}$ étudié précédemment, pourra être utilisés à ces fins. Néanmoins, afin d'anticiper la description de modulateurs intégrés utilisés par exemple dans le domaine des télécommunications, qui feront l'objet du chapitre @sec_eo_integrated, nous allons d'abord introduire un nouveau cristal, le niobate de lithium, qui est très largement employé pour ces applications.
+
+
+
+### Effet électro-optique dans le niobate de lithium {#sec-eo-basics-mods-ln}
+
+
+Nous allons nous intéresser dans ce à un cristal électro-optique différent du $\ce{KDP}$ que nous avons utilisé dans le [@sec-modu-eo-princip] pour illustrer les grands principes de la modulation. En effet, le niobate de lithium  est très largement employé pour la réalisation de modulateurs intégrés, en particulier ceux utilisés dans le domaine des télécommunications.
+
+
+Le niobate de lithium ($\ce{LiNbO3}$) est un cristal uniaxe dont l'ellipsoïde des indices en l'absence de champ électrique externe appliqué s'écrit, dans sa base propre
+$$
+\frac{x^2}{n_o^2}+\frac{y^2}{n_o^2}+\frac{z^2}{n_e^2}=1
+$$ {#eq-ln-index-ellipsoid-unpertured}
+où les indices ordinaire et extraordinaire prennent les valeurs
+$$
+n_o =  2.29
+$$
+et
+$$
+n_e =  2.2
+$$
+à la longueur d'onde $\lambda_0 = $ 633 nm.
+
+Il appartient à la classe cristallographique $3m$ dont le tenseur électro-optique s'écrit, en notation contractée
+$$
+r_{\textrm{3m}}
+= \begin{pmatrix} 
+0 & -r_{22} & r_{13} \\
+0 & r_{22} & r_{13} \\
+0 & 0 & r_{33} \\
+0 & r_{51} & 0 \\
+r_{51} & 0 & 0 \\
+-r_{22} & 0 & 0
+\end{pmatrix},
+$$ {#eq-ln-eo-tensor-contracted}
+avec, à $\lambda_0 = $ 633 nm
+
+$$
+\begin{alignat*}{2}
+r_{22} &= 3.4 \;\textrm{pm/V} &\quad r_{13}  &=  8.6 \; \textrm{pm/V}\\
+r_{51} &= 28.0 \;\textrm{pm/V} &\quad \color{mred}{r_{33}}  &\color{mred}{=  30.8} \;\color{mred}{\textrm{pm/V}}
+\end{alignat*}
+$$
+
+
+| Paramètre | Valeur | Unité |
+| :-------: | :----: | :---: |
+|   $n_o$   |  2,29  |       |
+|   $n_e$   |  2,2   |       |
+| $r_{22}$  |  3,4   | pm/V  |
+| $r_{13}$  |  8,6   | pm/V  |
+| $r_{51}$  |   28   | pm/V  |
+| $r_{33}$  |  30,8  | pm/V  | 
+
+: Indices et valeurs des coefficients électro-optiques du $\ce{LiNbO3}$.{#tbl-ln-eo-parameters}
+
+
+
+
+Le coefficient électro-optique le plus élevé est $r_{33}$. C'est donc celui que nous chercherons à exploiter afin de maximiser le retard de phase à amplitude de champ électrique externe donnée ou, de manière équivalente, minimiser la tension à appliquer afin d'obtenir un retard de phase souhaité. Pour cela, le champ électrique externe devra être appliqué selon la direction $\vbh{z}$. Dans ces conditions, la détermination de l'équation de l'ellipsoïde des indices en présence du champ électrique externe $\vb{E}_a = E_{az} \vbh{z}$ est immédiate, 
+
+$$
+\left(\frac{1}{n_o^2}+r_{13}E_{az}\right)x^2 + \left(\frac{1}{n_o^2}+r_{13}E_{az} \right) y^2 + \left(\frac{1}{n_e^2}+r_{33}E_{az} \right) z^2 = 1.
+$$ {#eq-ln-index-ellipsoid-eaz}
+Nous observons que, contrairement au $\ce{KDP}$ les axes principaux ne sont pas modifiés par l'application d'un champ électrique externe orienté selon $\vbh{z}$. Seules les valeurs des indices selon les axes sont affectées.
+
+
+![Coupes du cristal de $\ce{LiNbO3}$ permettant d'exploiter le coefficient le plus élevé $r_{33}$ de son tenseur électro-optique-](../figures/fig_modu_ln_cuts){#fig-modu-ln-cuts width=60%}
+
+
+Afin de pouvoir exploiter le coefficient $r_{63}$ du tenseur électro-optique de $\ce{LiNbO3}$, nous avons les choix possibles pour configuration du cristal, représentés sur la @fig-modu-ln-cuts :
+
+- propagation de l'onde lumineuse dans la direction $\pm\vbh{y}$ et orientation du champ électrique externe selon $\vbh{z}$ avec un plan supérieur du cristal orthogonal à $\vbh{x}$. On parlera alors d'un modulateur **$x-$cut**.
+- propagation de l'onde lumineuse dans la direction $\pm\vbh{x}$ et orientation du champ électrique externe selon $\vbh{z}$ avec un plan supérieur du cristal orthogonal à $\vbh{z}$. On parlera alors d'un modulateur **$z-$cut**.
+- propagation de l'onde lumineuse dans la direction $\pm\vbh{y}$ et orientation du champ électrique externe selon $\vbh{z}$ avec un plan supérieur du cristal orthogonal à $\vbh{z}$. Il s'agit encore d'un modulateur **$z-$cut**.
+
+La logique de cette terminologie apparaîtra plus clairement lorsque nous décrirons la fabrication de modulateurs intégrés dans le @sec-eo_integrated. Dans l'immédiat, et sans perte de généralité, nous considérons une propagation selon la direction $\vbh{y}$. Les états propres sont donc des états polarisés linéairement selon $\vbh{x}$, avec pour indice correspondant 
+$$
+n_x \approx n_o - \frac{1}{2}\;n_o^3\;r_{13}E_{az},
+$$ {#eq-ln-propy-nx-app}
+et selon $\vbh{z}$, avec pour indice
+$$
+n_z \approx n_e - \frac{1}{2}\;n_e^3\;r_{33}E_{az}.
+$$ {#eq-ln-propy-nz-app}
+Remarquons que dans l'écriture de (@eq-ln-propy-nx-app) et (@eq-ln-propy-nx-app) nous avons procédé aux approximations usuelles liées à la très faible valeur des coefficients électro-optiques et effectué un développement limité.
+
+Nous sommes maintenant en mesure de décrire les principes de fonctionnement de modulateurs de phase, de polarisation et d'intensité utilisant des cristaux électro-optiques de $\ce{LiNbO3}$.
+
+
+
+### Modulateur de phase {#sec-eo-basics-mods-pm}
+
+Afin d'obtenir un modulateur de phase, il sera suffisant d'injecter une onde polarisée linéairement selon un des deux états propres dans le cristal, plus particulièrement polarisée parallèlement à $\vbh{z}$ afin de bénéficier du coefficient $r_{33}$. La configuration correspondant est représentée sur la @fig-modu-basics-pm. On peut forcer l'état de polarisation incident selon $\vbh{z}$ par l'ajour d'un polariseur en entrée du cristal électro-optique. 
+
+![Configuration d'un modulateur de phase électro-optique.](../figures/fig_modu_basics_pm){#fig-modu-basics-pm width=60%}
+
+Le déphasage induit pourra s'écrire 
+$$
+\phi\ltr = \pi \frac{V\ltr}{V_\pi},
+$$
+où la tension demi-onde s'exprime selon
+$$
+V_\pi=\frac{\lambda_0}{n_e^3\; r_{33}}\left(\frac{e}{l}\right)
+$$ {#eq-ln-pm-vpi}.
+
+Pour un champ en entrée
+
+nous aurons un champ en sortie 
+$$
+\vbh{D}\left(l\right) = \vbh{D}\left(0\right) e^{-j\phi\ltr},
+$$
+
+ce qui correspond bien à l'opération d'un modulateur de phase.
+
+
+
+### Commutateur de polarisation {#sec-eo-basics-mods-pol}
+
+Nous avons vu que dans le cas plus général où l'état de polarisation de l'onde optique ne correspond pas à un des états principaux du cristal, c'est-à-dire, dans le cas de \ce{LiNbO3} n'est polarisée ni selon $\vbh{}$ ni selon $\vbh{}$, alors le modulateur devient une lame de phase contrôlée en tension : l'état de polarisation en sortie dépend du retard de phase relatif induit $\Gamma$. En particulier, si une tension égale à $V_\pi$ est appliquée, le cristal électro-optique devient une lame demi-onde. Si une onde optique polarisée linéairement à 45 degrés des axes principaux est injectée dans le cristal, son état de polarisation ne sera pas modifié en l'absence de tension appliquée, tandis que celui-ci subira une rotation de $\pi/2$ lorsqu'une tension égale à la tension demi-onde $V_\pi$ est appliquée. On peut ainsi réaliser un **commutateur (ou modulateur) de polarisation** entre deux états linéaires orthogonaux. Nous pouvons formaliser l'opération d'un tel modulateur
+
+![Configuration d'un commutateur de polarisation électro-optique.](../figures/fig_modu_basics_polm){#fig-modu-basics-polm width=60%}
+
+
+### Modulateur d'intensité {#sec-eo-basics-mods-im_pol}
+
+
+![Configuration d'un modulateur d'intensité électro-optique basé sur un commutateur de polarisation](../figures/fig_modu_basics_im_pol){#fig-modu-basics-im-pol width=60%}
+
+
+
+
+### Modulateur d'intensité basé sur une structure interférométrique {#sec-eo-basics-mods-im_mzm}
+
+
+![Configuration d'un modulateur électro-optique basé sur un interféromètre de Mach-Zehnder](../figures/fig_modu_basics_im_mzm){#fig-modu-basics-im-mzm width=60%}
+
+
+
+
+Nous verrons dans le chapitre @#sec-eo-integrated
+
+
+
+
+
+## Limites en bande passante {#sec-eo-basics-bw}
+
+Comme pour de nombreux composants électroniques ou électro-optique se pose la question de la ``rapidité'' du composant, à savoir le temps de réaction à une variation du signal de contrôle, ici la tension appliquée sur les électrodes du modulateur. Si, par example un saut de tension de 0 à $V_\pi$ est appliqué
+
+
+
+Il faut distibguer la rapidité de l'effet physique, ici l'effet Pockels, de celle de composants pratiques basés sur cet effet. 
+
+### Effet électro-optique {#sec-eo-basics-bw-pockels}
+En ce qui concerne l'effet physique lui-même, 
+
+
+La relation $\Gamma = \pi V/V_\pi$ suppose implicitement que l'effet est instantané. 
+
+### Effet capacitif {#sec-eo-basics-bw-rc}
+
+Le schéma de principe d'un modulateur à effet Pockels, comme représenté pour une configuration transverse sur la figure... montre qu'un tel modulateur est essentiellement un cristal, en sandwich entre deux électrodes métalliques, ce qui s'apparente à un condensateur. 
+
+$$
+\Delta f = \frac{1}{2\pi RC}
+$$ {#eq-eo-bw-rc}
+
+### Effet lié au temps de transit {#sec-eo-basics-bw-transit}
+
+Une seconde contribution à la limite en bande passante des modulateurs électro-optiques est liée à la vitesse finie de propagation de la lumière dans le cristal électro-optique.
+
+En effet, nous avons vu que l'effet Pockels est un effet relativement faible. En conséquence, afin d'obtenir un retard de phase souhaité pour une tension appliquée raisonable, la longueur du cristal doit être suffisament longue. C'est ce que traduit la relation exprimant la tension-demi-onde pour une configuration transverse.
+
+$$
+\Gamma\left(t\right)=\Gamma_0 \; \color{blue}{\left[\frac{\sin\left(\omega_m\frac{\tau}{2}\right)}{\omega_m\frac{\tau}{2}}\right]}\color{black}\;\cos\left(\omega_m t -\omega_m\frac{\tau}{2}+\varphi\right)
+$$
+
+
+```{python}
+#| label: fig-line-plot2
+#| fig-cap: "A simple line plot generated with Matplotlib."
+#| fig-width: 6
+#| fig-height: 4
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.linspace(0, 3, 100)
+y = np.sinc(x)
+
+
+fig, ax = plt.subplots()
+ax.plot(x/np.pi, np.abs(y))
+plt.ylabel('modulation amplitude')
+plt.xlabel(r'$\omega_m\tau/2$')
+plt.show()
+```
+
+
+
+
+
+$$
+v_g\left(\omega_\mathrm{RF}\right) = \frac{c}{n_g\left(\omega_\mathrm{RF}\right)}= \frac{c}{n_g\left(\omega_\mathrm{opt.}\right)}= v_g\left(\omega_\mathrm{opt.}\right)
+$$
+
+
+
+
+
+
+
