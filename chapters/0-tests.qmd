@@ -123,17 +123,15 @@ See [https://github.com/hosilva/physrev_mplstyle/tree/main](https://github.com/h
 
 ```{python}
 #| label: fig-test_matplotlib
-#| fig-cap: "A simple line plot generated with Matplotlib."
+#| fig-cap: "A simple line plot generated with Matplotlib using `physrev.mplstyle` and `plt.rcParams` set to 150 dpi ."
 
 
 import numpy as np
 import matplotlib.pyplot as plt
 
-%matplotlib inline
-%config InlineBackend.figure_format='retina'
 
 plt.style.use('../physrev.mplstyle')
-#plt.rcParams['figure.dpi'] = "200"
+plt.rcParams['figure.dpi'] = "150"
 
 f, ax = plt.subplots(1, 1)
 
@@ -169,13 +167,25 @@ ax.grid()
 
 ```{python}
 #| label: fig-line-plot
-#| fig-cap: "A simple line plot generated with Matplotlib."
+#| fig-cap: "We create a second plot without specifiying the styles and size options."
 
 
-#import matplotlib.pyplot as plt
-#import numpy as np
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
+
+ax.set_xlabel(r'$x$')
+ax.set_ylabel(r'$y =  \sin\left(x\right)$')
+
+plt.plot(x, y)
+plt.show()
+```
 
 
+```{python}
+#| label: fig-line-plot3
+#| fig-cap: "We change the size option to 200 dpi"
+
+plt.rcParams['figure.dpi'] = "200"
 
 x = np.linspace(0, 10, 100)
 y = np.sin(x)
@@ -184,19 +194,24 @@ plt.plot(x, y)
 plt.show()
 ```
 
+We still need to work to fully understand the size options in quarto, especially in context of dual HTML and PDF output. But this is working for now...
+
+
+## Lipsum 
+
+{{< lipsum 2 >}}
+
 
 
 ## Include a static figure 
 
 ![Longitudinal configuration of an electro optic modulator](../figures/fig_modu_eo_longitudinal_configuration){#fig-test-long width=50%}
 
-As can be seen in @fig-test-long...
+As can be seen in @fig-test-long, modulators are simple devices. [Fig. @fig-test-long] clearly shows it!
 
 
 
-## Lipsum 
 
-{{< lipsum 2 >}}
 
 ## Some highligted content
 
