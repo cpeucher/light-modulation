@@ -79,3 +79,5 @@ jupyter: python3
 
 execute:
   freeze: auto
+
+from: markdown+emoji

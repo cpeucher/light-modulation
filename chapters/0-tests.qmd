@@ -264,6 +264,118 @@ It is possible to define the title:
 This is a callout with a title.
 :::
 
+## Some fancy equations structures
+
+### Test 1: `eqnarray` without Markdown equation delimiters `$$ $$`
+
+```{latex}
+\begin{eqnarray}
+a & = & b,\label{eq:f11}\\
+c & = & d,\label{eq:f12}\\
+e & = & f,\label{eq:f13}
+\end{eqnarray}
+```
+
+\begin{eqnarray}
+a & = & b,\label{eq:f11}\\
+c & = & d,\label{eq:f12}\\
+e & = & f,\label{eq:f13}
+\end{eqnarray}
+
+PDF: :white_check_mark: pass
+
+HTML: :x: fail ()
+
+
+### Test 2 : `eqnarray` with Markdown equation delimiters `$$ $$`
+
+```{latex}
+$$
+\begin{eqnarray}
+a & = & b,\label{eq:f11}\\
+c & = & d,\label{eq:f12}\\
+e & = & f.\label{eq:f13}
+\end{eqnarray}
+$$
+```
+
+$$
+\begin{eqnarray}
+a & = & b,\label{eq:f21}\\
+c & = & d,\label{eq:f22}\\
+e & = & f.\label{eq:f23}
+\end{eqnarray}
+$$
+
+PDF: :white_check_mark: pass
+
+HTML: :x: fail ()
+
+### Test 3 : `eqnarray` with Markdown equation delimiters `$$ $$` and Quarto label `#eq-`
+
+```{latex}
+$$
+\begin{eqnarray}
+a & = & b,\\
+c & = & d,\\
+e & = & f.
+\end{eqnarray}
+$${#eq-eqnarray-global}
+```
+
+<!--
+$$
+\begin{eqnarray}
+a & = & b,\\
+c & = & d,\\
+e & = & f.
+\end{eqnarray}
+$${#eq-eqnarray-global}
+
+-->
+
+
+PDF: :x: fail (compilation failure)
+
+HTML: :white_check_mark: pass
+
+
+
+
+### Test 4:  `aligned` with Markdown equation delimiters `$$ $$` and Quarto label `#eq-`
+
+```{latex}
+$$
+\begin{aligned}
+a & =  b,\\
+c & =  d,\\
+e & =  f.
+\end{aligned}
+$$ {#eq-f3}
+```
+
+
+$$
+\begin{aligned}
+a & =  b,\\
+c & =  d,\\
+e & =  f.
+\end{aligned}
+$$ {#eq-f3}
+
+
+PDF: :white_check_mark: pass
+
+HTML: :white_check_mark: pass
+
+
+Seems to be the most robust, even though it does not allow numbering of individual equations, nor references to individual equations. At least it results in the same numbering in HTML and PDF formats.
+
+See some [discussions](https://github.com/quarto-dev/quarto-cli/issues/2275){target=_blank}.
+
+
+
+
 
 ## Bibliography
 
