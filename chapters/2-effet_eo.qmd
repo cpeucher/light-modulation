@@ -1,0 +1,614 @@
+# Rappels sur la propagation dans les milieux anisotropes {#sec-aniso}
+
+## Introduction {#sec-aniso-intro}
+
+La propagation d'une onde électro-magnétique dans un milieu anisotrope a fait l'objet d'un cours dédié en PHOT1 [@Barbier_enssat_phot1_ola]. Dans ce chapitre, nous nous contenterons d'énoncer les résultats qui constituent des pré-requis essentiels pour la bonne compréhension de la suite du cours. Ces résultats seront, pour la plupart, énoncés sans démonstrations. Vous êtes invités à vous référer à votre cours de milieux anisotropes de 1$^\mathrm{e}$ année.
+
+Nous énoncerons dans un premier temps des résultats généraux, mais non exhaustifs, sur la propagation dans les milieux anisotropes, puis nous nous intéresserons au cas de milieux présentant une anisotropie induite sous l'effet d'un champ électrique externe.
+
+Ce chapitre est une version remaniée de résumés de cours (tenant sur une feuille) disponibles par ailleurs :
+
+- Résumé 1 : [Milieux anisotropes](../complements/cheatsheet_milieux-anisotropes.pdf){target="_blank"}
+- Résumé 2 : [Effet Pockels](../complements/cheatsheet_effet-pockels.pdf){target="_blank"}
+
+
+
+## Quelques rappels sur les ondes électromagnétiques {#sec-aniso-em-waves}
+
+Une onde électromagnétique est décrite par les quatre champs que sont le champ électrique $\mbc{E}\rt$, le déplacement (ou induction) électrique $\mbc{D}\rt$, le champ magnétique $\mbc{H}\rt$ et l'induction magnétique $\mbc{B}\rt$. Ces champs sont des grandeurs vectorielles réelles dépendant à la fois du temps et de la position dans l'espace. La terminologie des champs $\mbc{B}$ et $\mbc{H}$ peut varier. Ils sont couplés par les **équations de Maxwell** qui, sous leurs formes les plus générales (celles à retenir) s'écrivent
+$$
+\begin{aligned}
+\rot \mbc{E}\rt & =  -\frac{\partial \mbc{B}}{\partial t}\rt,\\
+\rot \mbc{H}\rt & =  \mbc{J}\rt + \frac{\partial \mbc{D}}{\partial t}\rt,\\
+\divergence \mbc{D}\rt & =  \rho\rt,\\
+\divergence \mbc{H}\rt & =  0,
+\end{aligned}
+$$ {#eq-maxwell-equations-general}
+
+où $\rho\rt$ est la densité de charges libres et $\mbc{J}\rt$ est la densité de courant libre.
+
+Dans un milieu donné, ces champs sont reliés par des **relations constitutives** qui traduisent les propriétés du milieu. Dans un milieu linéaire, homogène, **isotrope**, diélectrique (sans charges ni courant libres), non magnétique et sans pertes, ces relations constitutives s'écrivent 
+$$
+\mbc{D}\rt = \epsilon \mbc{E}\rt
+$${#eq-constitutive-lhid-de}
+où le scalaire $\epsilon$ est la permittivité diélectrique du milieu, et
+$$
+\mbc{B}\rt = \mu_0 \mbc{H}\rt,
+$${#eq-constitutive-lhid-bh}
+où $\mu_0$ est la perméabilité du vide.
+La relation (@eq-constitutive-lhid-de) n'est de plus strictement valable que dans un milieu non dispersif ou pour une onde harmonique. Cette relation établit le fait que les champs $\mbc{E}$ et $\mbc{H}$ sont parallèles.
+
+En dehors de la nature isotrope du milieu, toutes les autres hypothèses seront maintenues dans l'intégralité de ce cours. 
+
+La permittivité diélectrique du milieu s'écrira de plus
+$$
+\epsilon = \epsilon_0 \epsilon_r
+$${#eq-relative-permittivity-intro}
+où $\epsilon_0$ est la permittivité diélectrique du vide et $\epsilon_r$ la **permittivité diélectrique relative**, qui est liée à **l'indice de réfraction** $n$ selon
+$$
+n = \sqrt{\epsilon_r}.
+$${#eq-relation-n-epsilonr}
+
+Afin de déterminer les solutions éventuelles d'un problème de propagation dans un milieu donné, la substitution des équations de Maxwell et des relations constitutives dans une relation vectorielle, typiquement
+$$
+\rot\left(\rot \mbc{F}\right) = \grad\left(\divergence \mbc{F}\right) - \Delta \mbc{F},
+$${#eq-rel-vect-rot-rot}
+permet idéalement d'obtenir une **équation de propagation** homogène en l'un des champs, par exemple $\mbc{E}$ ou $\mbc{H}$. Dans (@eq-rel-vect-rot-rot), $\mbc{F}$ est un champ vectoriel et $\Delta$ est l'opérateur laplacien vectoriel.
+
+Dans le milieu isotrope considéré ici, il est aisé de montrer qu'une onde plane monochromatique est solution du problème de propagation. On écrira ainsi, par exemple pour le champ électrique
+$$
+\mbc{E}\rt = \Re\left\{\vbh{E} \; e^{j\left(\omega_0 t - \vb{k}\cdot \vb{r}\right)}\right\}
+$${#eq-plane-monochromatic-wave_efield}
+où $\vbh{E}$ est l'enveloppe complexe, $\omega_0$ la pulsation et $\vb{k}$ le vecteur d'onde. Ce dernier est déterminé par la relation de dispersion qui, sous les hypothèses sur le milieu précédemment énoncées, s'écrit
+$$
+\vbh{k} = \frac{\omega_0}{c} n \vbh{u} = \frac{2\pi}{\lambda_0} n \vbh{u},
+$${#eq-dispersion-relation-lhid}
+où $\lambda_0$ est la longueur d'onde dans le vide et $\vbh{u}$ est un vecteur unitaire dans la direction de propagation, définie comme la normale aux plans de phase constante. Pour une telle onde
+
+- $\vbh{D}$ et $\vbh{E}$ sont parallèles ;
+- $\vbh{B}$ et $\vbh{H}$ sont parallèles ;
+- $\left(\vbh{u}, \vbh{D}, \vbh{H}\right)$ forme un trièdre direct.
+
+De plus, le **vecteur de Poynting complexe**
+$$
+\vb{S} = \frac{1}{2} \vbh{E} \times \vbh{H}^*
+$$
+est parallèle à $\vbh{u}$. La direction de propagation de l'énergie, est donc identique à la direction de propagation définie par la normale aux plans de phase constante.
+
+
+
+## Milieux anisotropes {#sec-aniso-propagation}
+
+Nous nous intéressons maintenant à la propagation d'une onde électromagnétique dans un milieu présentant une anisotropie électrique. Toutes les autres propriétés (à savoir linéarité, homogénéité, nature diélectrique, non magnétique et sans pertes seront maintenues). Dans un tel milieu, les champs $\mbc{D}\rt$ et $\mbc{E}\rt$ ne sont plus parallèles, contrairement à ce qu'il se passait dans un milieu isotrope et qui était traduit par la relation constitutive @eq-constitutive-lhid-de. La nouvelle relation constitutive reliant le champ et le déplacement électrique s'écrira donc 
+$$
+\mbc{D} = \tensoruu{\epsilon}\;\mbc{E}
+$$ {#eq-constitutive-lhad-de} 
+où $\tensoruu{\epsilon}$, le **tenseur des permittivités diélectriques** du milieu, est représenté sur une base une base quelconque par une matrice 
+$$
+\tensoruu{\epsilon} = \begin{pmatrix} \epsilon_{11} & \epsilon_{12} & \epsilon_{13}\\
+                                      \epsilon_{21} & \epsilon_{22} & \epsilon_{23}\\
+                                      \epsilon_{31} & \epsilon_{32} & \epsilon_{33}
+\end{pmatrix}.
+$${#eq-permittivity-tensor-arbitrary-basis}
+On peut établir que cette matrice est symétrique et, dans un milieu sans pertes, réelle. Elle est donc diagonalisable sur une base orthonormée. Il existe donc une base $\left(\vbh{x}, \vbh{y}, \vbh{z}\right)$ dans laquelle $\tensoruu{\epsilon}$ est diagonale
+$$
+\tensoruu{\epsilon} = \begin{pmatrix}
+                          \epsilon_{x} & 0            & 0 \\
+                                 0     & \epsilon_{y} & 0 \\
+                                 0     & 0            & \epsilon_{z}
+                        \end{pmatrix} = \epsilon_0\begin{pmatrix}
+                          n_x^2 & 0            & 0 \\
+                                 0     & n_y^2 & 0 \\
+                                 0     & 0            & n_z^2
+                        \end{pmatrix}.
+$$
+Les directions définies par les vecteurs $\vbh{x}$, $\vbh{y}$ et  $\vbh{z}$ sont appelées les **axes principaux** du milieu. Les indices correspondants $n_x$, $n_y$, et $n_z$ sont appelés les **indices principaux}**. 
+
+On introduit parfois également le **tenseur imperméabilité**, noté $\tensoruu{\eta}$, qui est l'inverse du tenseur des permittivités diélectriques relatives. Dans la base  $\left(\vbh{x}, \vbh{y}, \vbh{z}\right)$, il s'écrit donc
+$$
+\tensoruu{\eta} = \begin{pmatrix}
+                      \frac{1}{n_x^2} & 0 & 0 \\
+                      0 & \frac{1}{n_y^2} & 0 \\
+                      0 & 0 & \frac{1}{n_z^2}
+                    \end{pmatrix}.
+$$ {#eq-impermeability-tensor-def}
+
+
+
+
+
+
+### Onde plane harmonique
+
+On s'intéresse à la propagation d'une onde plane harmonique dont le vecteur déplacement s'écrit, en tout point $\vb{r}$ de l'espace
+$$
+\mbc{D}\rt = \Re\left\{\vbh{D} \; e^{j\left(\omega_0 t - \vb{k}\cdot \vb{r}\right)}\right\}
+$${#eq-displacement-complex-general}
+où $\vbh{D}$ est l'amplitude complexe de l'onde, $\omega_0$ la pulsation et $\vb{k}$ le vecteur d'onde.
+
+Par analogie avec la propagation dans un milieu isotrope, pour laquelle le vecteur d'onde s´écrit
+$$
+\vb{k} = n \frac{\omega_0}{c} \; \vbh{u},
+$${#eq-wavevector-isotropic}
+où $n$ est l'indice de réfraction, $c$ est la vitesse de la lumière dans le vide et $\vbh{u}$ un vecteur unitaire dans la direction de propagation, on pourra écrire 
+$$
+\vb{k} = \frac{2\pi}{\lambda_0} n \;\vbh{u} = n \frac{\omega_0}{c} \; \vbh{u},
+$${eq-aniso-wavevector-general}
+où $\lambda_0$ est la longueur d'onde et $n$ est un indice dont la signification reste à déterminer. La direction de propagation correspond à la normale au front d'onde, c'est à dire aux plans de phase constante. Pas direction de propagation de l'énergie...
+
+
+
+
+
+En effet, un milieu anisotrope n'est pas caractérisé par un indice de réfraction unique.  
+
+
+
+
+<!--
+
+Déterminer les valeurs possibles de l'indice $n$ ainsi que les amplitudes complexes $\vbh{D}$ telles que $\mbc{D}$ défini ci-dessus puisse être une solution au problème de propagation dans un milieu anisotrope.
+
+
+
+## Propriétés diélectriques du milieu
+
+
+### Matrice des permittivités
+
+
+
+
+
+
+
+### Matrice imperméabilité
+
+                 
+                    
+
+
+
+## Équations de Maxwell
+
+Dans un milieu diélectrique linéaire, non magnétique, sans charges ni courants
+\begin{eqnarray*}
+  \frac{n}{c} \vbh{u}\times \vbh{E} &=& \vbh{B}\\
+  \frac{1}{\mu_0} \frac{n}{c} \vbh{u}\times \vbh{B} &=& -\vbh{D}\\
+  \vbh{u}\cdot \vbh{D} & = & 0\\
+  \vbh{u}\cdot \vbh{B} & = & 0
+\end{eqnarray*}
+
+Si le milieu est magnétique, (mais toutefois ne présente pas d'anisotropie magnétique), remplacer $\mu_0$ par $\mu = \mu_0 \mu_r$ où $\mu_r$ est la perméabilité relative.
+
+
+### Configuration des champs 
+
+Les équations de Maxwell et la définition du vecteur de Poynting complexe
+$$
+\vb{S}= \frac{1}{2} \vbh{E}\times\vbh{H}^*
+$$
+permettent d'établir la configuration relative des champs
+
+
+("../figures/pdf/fig_field_configuration_anisotropic.pdf")
+
+Dans le cas isotrope  $\alpha = 0$
+
+
+\begin{bluebox}{Configuration des champs}
+\begin{itemize}
+\item les champs $\vbh{B}$ et $\vbh{H}$ sont transverses
+\item le champ $\vbh{D}$ est transverse
+\item le champ $\vbh{E}$ n'est pas transverse
+\item la direction de propagation de l'énergie (direction du vecteur de Poynting complexe $\vb{S}$) est différente de la direction du vecteur d'onde $\vb{k}$ (normale aux plans de phase constante)
+\end{itemize}
+\end{bluebox}
+
+
+
+
+
+
+
+## Surface des indices 
+
+Pour une direction de propagation donnée $\vbh{u}$, on peut déterminer les valeurs possible de $n$ en résolvant **l'équation de Fresnel aux indices**.
+$$
+\sum_{i=x,y,z} \frac{n_i^2 \hat{u}_i^2}{n^2 - n_i^2} = 0
+$$
+où les $\hat{u}_i$ sont les composantes du vecteur $\vbh{u}$ sur la base $\left(\vbh{x}, \vbh{y}, \vbh{z}\right)$
+
+Une visualisation géométrique des solutions peut se faire en introduisant la *\textcolor{Bittersweet}{surface des indices}* définie selon
+$$
+\left(\mathcal{I}\right) = \left\{\textrm{M}, \textbf{OM} = n \vbh{u}\right\}
+$$
+L'équation de cette surface est
+$$
+\begin{split}
+& x^2 n_x^2\left(x^2 + y^2 + z^2 - n_y^2\right)\left(x^2 + y^2 + z^2 - n_z^2\right)\\
++ \,\,\,& y^2 n_y^2\left(x^2 + y^2 + z^2 - n_x^2\right)\left(x^2 + y^2 + z^2 - n_z^2\right)\\
++ \,\,\,& z^2 n_z^2\left(x^2 + y^2 + z^2 - n_x^2\right)\left(x^2 + y^2 + z^2 - n_y^2\right) =\, 0
+\end{split}
+$$
+C'est une surface à deux nappes telle que représentée dans le cas $n_z > n_y > n_x$
+
+
+("../figures/pdf/fig_surface_indices_quarter_biaxial.pdf")
+
+
+Représenter l'intersection de la surface des indices avec chacun des plans $x=0$, $y=0$ et $z=0$ aide à sa visualisation.
+
+Par exemple pour $x=0$
+\begin{eqnarray*}
+  y^2 + z^2  &=& n_x^2 \\
+  \frac{y^2}{n_z^2} + \frac{z^2}{n_y^2}&=& 1
+\end{eqnarray*}
+Il s'agit d'un cercle de rayon $n_x$ et d'une ellipse de demi-axes $n_z$ et $n_y$.
+
+
+
+("../figures/pdf/fig_surface_indices_intersections_old.pdf")
+
+
+Il y a donc, en général, deux solutions pour $n$, obtenues en considérant l'intersection de la surface des indices par la droite passant par l'origine et portée par le vecteur $\vbh{u}$. 
+
+On parlera de *\textcolor{Bittersweet}{biréfringence}*.
+
+On appelle *\textcolor{Bittersweet}{axe optique}* une direction de propagation selon laquelle il n'existe qu'une solution pour $n$. Les axes optiques sont définis par les intersections entre les deux nappes de la surface des indices.
+
+
+
+
+
+
+
+## États propres
+
+À chaque solution $n'$ et $n''$, lorsqu'elles sont distinctes, on peut associer une onde plane harmonique \textcolor{Bittersweet}{polarisée linéairement} dont la polarisation reste inchangée lors de sa propagation selon une direction donnée $\vbh{u}$ dans un milieu anisotrope. De plus les états de polarisation associés à $n'$ et $n''$ sont \textcolor{Bittersweet}{orthogonaux}.
+
+On appelle ces états *\textcolor{Bittersweet}{états propres}*. On notera $\vbh{d}'$ et $\vbh{d}''$ leurs *\textcolor{Bittersweet}{vecteurs de Jones}* normalisés.
+
+Pour une onde se propageant dans la direction $\vbh{u}$ et polarisée selon $\vbh{d}'$
+$$
+\vbh{D}\left(L\right) = \vbh{D}\left(0\right) e^{-j\frac{2\pi}{\lambda_0} n'L} = \lVert \vbh{D}\left(0\right)\rVert e^{-j\frac{2\pi}{\lambda_0} n'L} \vbh{d'}
+$$
+Cette onde demeure polarisée selon $\vbh{d}'$ et ``voit" l'indice $n'$. De même pour une onde polarisée selon $\vbh{d}''$.
+
+Pour une onde possédant un état de polarisation quelconque, on effectue une  *\textcolor{Bittersweet}{décomposition sur la base des états propres}*
+$$
+\vbh{D}\left(L\right) = \hat{D}'\left(0\right) e^{-j\frac{2\pi}{\lambda_0} n'L} \;\vbh{d}' + \hat{D}''\left(0\right) e^{-j\frac{2\pi}{\lambda_0} n''L} \;\vbh{d}''
+$$
+
+
+
+
+\begin{bluebox}{Classification des milieux}
+\begin{itemize}
+\item $n_x = n_y = n_z$ : milieu \textcolor{Bittersweet}{isotrope}
+
+      La surface des indices est une sphère. Quelle que soit la direction $\vbh{u}$, l'onde verra l'indice $n$, qui est l'indice de réfraction du milieu. 
+      
+      On pourra arbitrairement choisir deux états orthogonaux comme base.
+
+\item $n_x = n_y \neq n_z$ : milieu \textcolor{Bittersweet}{uniaxe}
+
+      La surface des indices est une sphère de rayon $n_x$ et un ellipsoïde de révolution autour de l'axe $\vbh{z}$. Les deux nappes sont tangentes sur cet axe. Pour une propagation dans la direction de l'unique axe optique $\vbh{z}$, la propagation sera analogue au cas isotrope. 
+      
+      On appellera $n_o = n_x = n_y$ \textcolor{Bittersweet}{indice ordinaire} et $n_e = n_z$ \textcolor{Bittersweet}{indice extraordinaire} 
+
+
+
+\item $n_z > n_y > n_x$ : milieu \textcolor{Bittersweet}{biaxe}
+
+     Il existe deux axes optiques pour lesquels la propagation est analogue au cas isotrope. 
+     
+     Pour toutes les autres directions de propagation, on aura deux solutions $n'$ et $n''$ distinctes et deux états propres linéaires orthogonaux $\vbh{d}'$ et $ \vbh{d}''$ associés.
+      
+\end{itemize}
+\end{bluebox}
+
+
+
+
+On aura donc une transformation de l'état de polarisation de l'onde, selon la valeur du retard de phase
+$$
+\Gamma\left(L\right) = \frac{2\pi}{\lambda}\left(n'' - n'\right)L
+$$
+
+
+
+## Ellipsoïde des indices 
+
+L'*\textcolor{Bittersweet}{ellipsoïde des indices}* est une construction géométrique permettant de déterminer la direction des états propres et les indices associés.
+
+Dans la base $\left(\vbh{x}, \vbh{y}, \vbh{z}\right)$ dans laquelle la matrice des permittivités diélectriques est diagonale, son équation est 
+$$
+\frac{x^2}{n_x^2} +  \frac{y^2}{n_y^2} +  \frac{z^2}{n_z^2} = 1
+$$
+
+
+
+
+("../figures/pdf/fig_index_ellipsoid.pdf")
+
+
+
+
+\begin{graybox}{Mode d'emploi}
+\begin{itemize}
+\item Soit $\vbh{u}$ la direction du vecteur d'onde.
+\item On considère l'intersection de l'ellipsoïde des indices avec le plan orthogonal à $\vbh{u}$ passant par l'origine.
+\item Il s'agit d'une ellipse $\left(\mathcal{G}\right)$.
+\item Les axes de $\left(\mathcal{G}\right)$ correspondent aux directions des états propres $\vbh{d}'$ et $\vbh{d}''$.
+\item Les indices associés $n'$ et $n''$ correspondent aux demi-axes respectifs de l'ellipse.
+\end{itemize}
+\end{graybox}
+
+
+
+
+
+
+
+
+
+
+
+
+## Effet Pockels {#sec-aniso-pockels}
+
+Les propriétés d'anisotropie de certains matéraux peuvent être modifiées par des contraintes extérieures. 
+
+
+L'effet qui nous intéresse ici est l'anisotropie induite sous l'influence d'un champ électrique externe appliqué, connue sous le nom d'**effet électro-optique** ou **effet Pockels**.
+
+
+
+
+
+# Effet Pockels
+
+
+## Rappel : ellipsoïde des indices
+
+Dans la base $\left(\vbh{x}, \vbh{y}, \vbh{z}\right)$ dans laquelle la matrice des permittivités diélectriques d'un milieu anisotrope est diagonale, son *\textcolor{Bittersweet}{ellipsoïde des indices}* s'écrit
+$$
+\frac{x^2}{n_x^2} + \frac{y^2}{n_y^2} + \frac{z^2}{n_z^2} = 1,
+$$
+où $n_x, n_y, n_z$ sont les *\textcolor{Bittersweet}{indices principaux}*. La base propre $\left(\vbh{x}, \vbh{y}, \vbh{z}\right)$ définit les *\textcolor{Bittersweet}{axes principaux}*.
+
+On écrira de manière équivalente
+$$
+B_1^0 x^2 + B_2^0 y^2 + B_3^0 z^2 = 1.
+$$
+
+
+Pour une onde plane dont la direction de propagation $\vbh{u}$ (normale aux plans de phase constante) est connue, on peut déterminer les *\textcolor{Bittersweet}{états propres}* (états polarisés linéairement qui ne sont pas modifiés lors de la propagation dans le milieu) et les *\textcolor{Bittersweet}{indices associés}* grâce à la construction géométrique de l'ellipsoïde des indices :
+
+- Les directions des états propres sont les deux axes de l'ellipse intersection entre l'ellipsoïde des indices et le plan orthogonal à $\vbh{u}$ passant par l'origine.
+- Les indices associés sont les demi-axes de cette ellipse.
+
+
+
+
+
+## Effet d'une anisotropie induite
+
+Des contraintes extérieures peuvent modifier l'anisotropie du milieu. Ceci se traduit par une déformation de l'ellipsoïde des indices :
+
+- modification des axes de l'ellipsoïde, c'est-à-dire des axes principaux du milieu ;
+- modification des demi-axes, c'est-à-dire des indices principaux du milieu.
+
+Un milieu anisotrope peut ainsi présenter de nouveaux axes et indices principaux. Un milieu isotrope peut quant à lui devenir anisotrope.
+
+
+Sur la base $\left(\vbh{x}, \vbh{y}, \vbh{z}\right)$, l'ellipsoïde des indices déformé s'écrit, de la manière la plus générale
+$$
+B_1 x^2 + B_2 y^2 + B_3 z^2 + 2 B_4 yz + 2B_5 xz + 2B_6 xy =1.
+$$
+On peut lui associer une matrice
+$$
+\mat{Q} =\begin{pmatrix}
+      B_1 & B_6 & B_5 \\
+      B_6 & B_2 & B_4 \\
+      B_5 & B_4 & B_3
+    \end{pmatrix}.
+$$
+On remarque que, exprimée dans la base propre d'un ellipsoïde, la matrice $\mat{Q}$ est diagonale.
+
+
+## Effet électro-optique linéaire
+
+L'anisotropie de certains milieux cristallins peut être modifiée par l'application d'un champ électrique externe $\vb{E}_a$. On se limite à l'*\textcolor{Bittersweet}{effet électro-optique linéaire}*, également connu sous le nom d'*\textcolor{Bittersweet}{effet Pockels}*, pour lequel les coefficients de l'équation de l'ellipsoïde des indices sont modifiés selon la relation
+$$
+\Delta \vb{B} = \mat{r} \; \vb{E}_a,
+$$
+où $\mat{r}$ est le *\textcolor{Bittersweet}{tenseur électro-optique}*.
+
+On peut ainsi déterminer les coefficients de l'équation de l'ellipsoïde déformé grâce à
+$$
+\begin{pmatrix}  B_1 -B_1^0\\ B_2-B_2^0 \\ B_3 -B_3^0 \\B_4 \\B_5 \\B_6\end{pmatrix}
+= \begin{pmatrix}
+r_{11} & r_{12} & r_{13} \\
+r_{21} & r_{22} & r_{23} \\
+r_{31} & r_{32} & r_{33} \\
+r_{41} & r_{42} & r_{43} \\
+r_{51} & r_{52} & r_{53} \\
+r_{61} & r_{62} & r_{63}
+\end{pmatrix}
+\begin{pmatrix} E_{ax} \\ E_{ay} \\ E_{az} \end{pmatrix}.
+$$
+
+La forme du tenseur électro-optique dépend de la *\textcolor{Bittersweet}{classe cristalline}*. Les valeurs des coefficients dépendent du cristal au sein de cette classe.  
+
+
+
+## Propagation dans un milieu présentant une anisotropie induite
+
+\begin{redbox}{Problème}
+Quels sont les nouveaux états propres et indices associés lorsque le milieu est soumis à une anisotropie induite, ici l'application d'un champ électrique externe $\vb{E}_a$ ?
+\end{redbox}
+
+La résolution d'un problème de propagation d'une onde plane monochromatique dans un milieu anisotrope se ramène à la connaissance des états propres pour un direction de propagation donnée et des indices associés.
+
+Afin de pouvoir facilement déterminer ces grandeurs, il est généralement plus commode d'exprimer l'ellipsoïde des indices modifié dans sa nouvelle base propre, c'est-à-dire déterminer ses axes principaux et indices principaux. 
+
+Pour cela on diagonalise la matrice $\mat{Q}$ :
+
+- Les valeurs propres permettent de déterminer les nouveaux indices principaux.
+- Les vecteurs propres définissent les nouveaux axes principaux.  
+
+
+\begin{graybox}{Méthodologie}
+\begin{itemize}
+\item Pour un cristal donné, on connaît son ellipsoïde des indices non perturbé dans sa base propre $\left(\vbh{x}, \vbh{y}, \vbh{z}\right)$
+$$
+B_1^0 x^2 + B_2^0 y^2 + B_3^0 z^2 = 1.
+$$
+\item  On connaît également, grâce à des tables, son tenseur électro-optique $\mat{r}$.
+\item Sous l'application d'un champ électrique externe $\vb{E}_a$, on détermine l'ellipsoïde des indices modifié
+$$
+B_1 x^2 + B_2 y^2 + B_3 z^2 + 2 B_4 yz + 2B_5 xz + 2B_6 xy =1,
+$$
+où les $B_i$ s'obtiennent selon $\Delta \vb{B} = \mat{r} \; \vb{E}_a$.
+\item On se ramène à l'écriture de l'ellipsoïde des indices modifié dans sa nouvelle base propre $\left(\vbh{x}', \vbh{y}', \vbh{z}'\right)$
+$$
+B_1' x'^2 + B_2' y'^2 + B_3' z'^2 = 1,
+$$
+où les $B_i'$ sont les valeurs propres de la matrice 
+$$
+\mat{Q} =\begin{pmatrix}
+      B_1 & B_6 & B_5 \\
+      B_6 & B_2 & B_4 \\
+      B_5 & B_4 & B_3
+    \end{pmatrix}.
+$$
+\item On peut en déduire les nouveaux indices principaux
+$$
+\frac{1}{n_{x'}^2} = B_1', \qquad  \frac{1}{n_{y'}^2} = B_2', \qquad \frac{1}{n_{z'}^2} = B_3', 
+$$
+ainsi que les nouveaux axes principaux, $\left(\vbh{x}', \vbh{y}', \vbh{z}'\right)$, qui sont des vecteurs propres de la matrice $\mat{Q}$ (qu'on aura pris soin de définir de manière à ce qu'ils forment une base orthonormée directe).
+\end{itemize}
+\end{graybox}
+
+
+
+
+
+## Exemple : effet électro-optique dans le KDP 
+
+### Propriétés du milieu
+
+Milieu uniaxe $\Rightarrow$ ellipsoïde des indices dans sa base propre
+$$
+\frac{x^2}{n_o^2} + \frac{y^2}{n_o^2} + \frac{z^2}{n_e^2} = 1
+$$
+$n_o$ : indice ordinaire, $n_e$ : indice extraordinaire. On a 
+$$
+B_1^0 = B_2^0 = \frac{1}{n_o^2}, \qquad B_3^0 = \frac{1}{n_e^2}.
+$$
+
+Classe cristalline $\bar{4}2m$ $\Rightarrow$ tenseur électro-optique : 
+
+$$
+\mat{r} = 
+\begin{pmatrix}
+    0 & 0 & 0 \\
+    0 & 0 & 0 \\
+    0 & 0 & 0 \\
+    r_{41} & 0 & 0 \\
+    0 & r_{41} & 0 \\
+    0 & 0 & r_{63}
+    \end{pmatrix}
+$$
+
+### Détermination des axes et indices principaux sous l'effet d'un champ électrique externe
+
+On applique un champ électrique externe $\vb{E}_a = E_{az} \vbh{z}$. L'équation de l'ellipsoïde des indices devient 
+$$
+B_1 x^2 + B_1 y^2 + B_3 z^2 + 2B_6 xy =1,
+$$
+avec $B_6 =r_{63}E_{az}$.
+
+
+On diagonalise la matrice 
+$$
+\mat{Q} =\begin{pmatrix}
+      B_1 & B_6 & 0 \\
+      B_6 & B_1 & 0 \\
+      0 & 0 & B_3
+\end{pmatrix}
+$$
+afin de déterminer les nouveaux axes principaux et indices principaux. 
+
+On obtient les valeurs propres en résolvant
+$$
+\det\left(\mat{Q}-\lambda \mat{I} \right) = 0,
+$$
+où $\mat{I}$ est la matrice identité.
+
+On trouve les valeurs propres
+\begin{eqnarray*}
+\lambda_1 & = & B_1 + B_6,\\
+\lambda_2 & = & B_1 - B_6,\\
+\lambda_3 & = & B_3, 
+\end{eqnarray*}
+et les vecteurs propres correspondant 
+\begin{eqnarray*}
+\mathbf{x}' & = &\frac{1}{\sqrt{2}}\left(\mathbf{x}+\mathbf{y}\right),\\
+\mathbf{y}' & = &\frac{1}{\sqrt{2}}\left(-\mathbf{x}+\mathbf{y}\right),\\
+\qquad \mathbf{z}'  & = &\mathbf{z},
+\end{eqnarray*}
+qui sont les nouveaux axes principaux.
+
+On en déduit
+\begin{eqnarray*}
+\frac{1}{n_{x'}^2}& = &\frac{1}{n_o^2}+r_{63}E_{az},\\[6pt]
+\frac{1}{n_{y'}^2}& =& \frac{1}{n_o^2}-r_{63}E_{az},\\[6pt]
+\frac{1}{n_{z'}^2}& = &\frac{1}{n_e^2},
+\end{eqnarray*}
+qui permettent de déterminer les indices principaux.
+
+Les coefficients du tenseur électro-optique sont en général très faibles, de l'ordre du pm/V. On pourra donc considérer, sauf situation cataclismique, que $n_o^2 r_{63} E_{az} \ll 1$ et effectuer un développement limité au premier ordre. On trouve finalement les relations linéaires suivantes entre les indices principaux et le champ électrique appliqué
+\begin{eqnarray*}
+n_{x'}& \approx &  n_o-\frac{1}{2}\;n_o^3 \;r_{63}E_{az},\\[6pt]
+n_{y'}& \approx & n_o+\frac{1}{2}\;n_o^3 \;r_{63}E_{az},\\[6pt]
+n_{z'}& =  & n_e.
+\end{eqnarray*}
+
+
+### Propagation d'une onde plane monochromatique
+
+Considérons une onde se propageant dans le milieu selon la direction $\vbh{u}=\vbh{z}$. L'utilisation de la construction de l'ellipsoïde des indices est immédiate : les états propres sont polarisés linéairement selon $\vbh{x}'$ et $\vbh{y}'$ et les indices associés sont respectivement $n_{x'}$ et $n_{y'}$. 
+
+Pour une propagation sur une longueur $l$ selon la direction $\vbh{z}$, le retard de phase entre les états propres, qui gouverne la transformation de l'état de polarisation incident est 
+$$
+\Gamma\left(l\right) = \frac{2\pi}{\lambda_0}\left(n_{y'} - n_{x'}\right) l = \frac{2\pi}{\lambda_0} n_o^3 \;r_{63}E_{az} l.
+$$
+
+
+("../figures/pdf/fig_pockels_longitudinal_configuration_kdp.pdf")
+
+
+Si le champ $\vb{E}_a$ est créé par l'application d'une tension $V = E_{az} l$ entre les deux facettes du cristal orthogonales à $\vbh{z}$, on pourra écrire $$
+\Gamma = \pi \frac{V}{V_\pi}
+$$
+où 
+$$
+V_\pi = \frac{\lambda_0}{2n_o^3 \; r_{63}}
+$$
+est la *\textcolor{Bittersweet}{tension demi-onde}* (tension à appliquer afin de générer un retard de phase de $\pi$).
+
+
+
+
+
+-->
+
+
+
+## Inclure 
+
+- [ ] Origine physique
+- [ ] Constante de temps
