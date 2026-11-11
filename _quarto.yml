@@ -58,6 +58,7 @@ format:
   pdf:
     documentclass: scrreprt
     papersize: a4
+    pdf-engine: xelatex
     include-in-header: 
       - text: |
           \usepackage{unicode-math}

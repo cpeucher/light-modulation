@@ -23,6 +23,7 @@ This page has to be commented in `_quarto.yml` for final production.
 | `\mathcal`    | $\mathcal{E}$          |
 | `\vb`         | $\vb{x}$               |
 | `\vbh`        | $\vbh{x}$              |
+| `\vbh`        | $\vbh{X}$              |
 | `\mat`        | $\mat{H}$              |
 | `\op`         | $\op{L}$               |
 | `\transpose`  | $\transpose{\mat{M}}$  |
@@ -95,6 +96,7 @@ This page has to be commented in `_quarto.yml` for final production.
 | `\wsa`          | $\wsa$          |
 
 
+### Troubleshooting
 
 ## Chemical formula using `mhchem` package 
 
