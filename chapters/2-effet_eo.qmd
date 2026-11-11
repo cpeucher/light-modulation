@@ -79,7 +79,9 @@ est parallèle à $\vbh{u}$. La direction de propagation de l'énergie, est donc
 
 ## Milieux anisotropes {#sec-aniso-propagation}
 
-Nous nous intéressons maintenant à la propagation d'une onde électromagnétique dans un milieu présentant une anisotropie électrique. Toutes les autres propriétés (à savoir linéarité, homogénéité, nature diélectrique, non magnétique et sans pertes seront maintenues). Dans un tel milieu, les champs $\mbc{D}\rt$ et $\mbc{E}\rt$ ne sont plus parallèles, contrairement à ce qu'il se passait dans un milieu isotrope et qui était traduit par la relation constitutive @eq-constitutive-lhid-de. La nouvelle relation constitutive reliant le champ et le déplacement électrique s'écrira donc 
+### Description du milieu
+
+Nous considérons maintenant à des milieux présentant une anisotropie électrique. Toutes les autres propriétés (à savoir linéarité, homogénéité, nature diélectrique, non magnétique et sans pertes seront maintenues). Dans un tel milieu, les champs $\mbc{D}\rt$ et $\mbc{E}\rt$ ne sont plus parallèles, contrairement à ce qu'il se passait dans un milieu isotrope et qui était traduit par la relation constitutive @eq-constitutive-lhid-de. La nouvelle relation constitutive reliant le champ et le déplacement électrique s'écrira donc 
 $$
 \mbc{D} = \tensoruu{\epsilon}\;\mbc{E}
 $$ {#eq-constitutive-lhad-de} 
@@ -115,26 +117,23 @@ $$ {#eq-impermeability-tensor-def}
 
 
 
+### Propagation d'une onde plane harmonique
 
-
-
-### Onde plane harmonique
-
-On s'intéresse à la propagation d'une onde plane harmonique dont le vecteur déplacement s'écrit, en tout point $\vb{r}$ de l'espace
+On s'intéresse maintenant à la propagation d'une onde plane harmonique dans un milieu présentant une anisotropie électrique telle que décrite précédemment. Le champ déplacement électrique s'écrit, en tout point $\vb{r}$ de l'espace
 $$
 \mbc{D}\rt = \Re\left\{\vbh{D} \; e^{j\left(\omega_0 t - \vb{k}\cdot \vb{r}\right)}\right\}
 $${#eq-displacement-complex-general}
-où $\vbh{D}$ est l'amplitude complexe de l'onde, $\omega_0$ la pulsation et $\vb{k}$ le vecteur d'onde.
+où, comme décrit précédemment, $\vbh{D}$ est l'amplitude complexe de l'onde, $\omega_0$ sa pulsation et $\vb{k}$ son vecteur d'onde.
 
-Par analogie avec la propagation dans un milieu isotrope, pour laquelle le vecteur d'onde s´écrit
+Par analogie avec la propagation dans un milieu isotrope, on pourra toujours écrire ce dernier
 $$
-\vb{k} = n \frac{\omega_0}{c} \; \vbh{u},
-$${#eq-wavevector-isotropic}
-où $n$ est l'indice de réfraction, $c$ est la vitesse de la lumière dans le vide et $\vbh{u}$ un vecteur unitaire dans la direction de propagation, on pourra écrire 
-$$
-\vb{k} = \frac{2\pi}{\lambda_0} n \;\vbh{u} = n \frac{\omega_0}{c} \; \vbh{u},
+\vb{k} = \frac{2\pi}{\lambda_0} n \;\vbh{u} =  \frac{\omega_0}{c} n\; \vbh{u},
 $${eq-aniso-wavevector-general}
-où $\lambda_0$ est la longueur d'onde et $n$ est un indice dont la signification reste à déterminer. La direction de propagation correspond à la normale au front d'onde, c'est à dire aux plans de phase constante. Pas direction de propagation de l'énergie...
+où $n$ est un indice dont la signification reste à déterminer. Il ne s'agit pas de l'indice de réfraction, puisque un milieu anisotrope n'est pas caractérisé par un indice unique, mais par un tenseur des permittivités comportant 6 éléments distincts, réduits à 3 dans la base des axes principaux.
+
+
+
+La direction de propagation $\vbh{u}$ correspond toujours à la normale au front d'onde, c'est à dire aux plans de phase constante. 
 
 
 
@@ -151,10 +150,6 @@ Déterminer les valeurs possibles de l'indice $n$ ainsi que les amplitudes compl
 
 
 
-## Propriétés diélectriques du milieu
-
-
-### Matrice des permittivités
 
 
 
@@ -162,10 +157,8 @@ Déterminer les valeurs possibles de l'indice $n$ ainsi que les amplitudes compl
 
 
 
-### Matrice imperméabilité
 
-                 
-                    
+
 
 
 
