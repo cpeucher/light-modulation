@@ -8,16 +8,14 @@ Nous avons vu dans le chapitre précédent comment l'application d'un champ éle
 
 ## Cellule de Pockels {#sec-eo-basics-pockels}
 
-Nous considérons à nouveau un cristal de KDP, comme étudié dans le chapitre 
-
+Nous considérons à nouveau un cristal de $\ce{KDP}$, comme étudié dans le chapitre @sec-aniso, sur les facettes duquel des électrodes métalliques peuvent être déposées afin de créer un champ électrique externe résultant de l'application d'une tension entre les-dites électrodes. De manière générale, un tel dispositif sera appelé **cellule de Pockels**.
 
 
 ### Configuration longitudinale {#sec-eo-basics-pockels-long}
 
-
 ![Configuration longitudinale d'un modulateur électro-optique réalisé avec un cristal de KDP.](../figures/fig_modu_eo_longitudinal_configuration){#fig-modu_long width=50%}
 
-Nous considérons la configuration représentée sur la @fig-modu_long où une onde lumineuse de longueur d'onde $\lambda_0$ se propage selon la direction $\vbh{z}$ et où un champ électrique externe d'amplitude $E_a$ est appliqué selon la même direction. Ce champ peut être créé par l'application d'une tension $V$ sur des électrodes déposées sur les deux facettes du cristal orthogonales à $\vbh{z}$. On parlera dans ce cas de **configuration longitudinale** puisque la direction de propagation de la lumière est identique à celle du champ externe $\vb{E}_a = E_a \vbh{z}$. La longueur du cristal (selon la direction de propagation) est $l$.
+Nous considérons la configuration représentée sur la @fig-modu_long où une onde lumineuse de longueur d'onde $\lambda_0$ se propage selon la direction $\vbh{z}$ et où un champ électrique externe d'amplitude $E_{az}$ est appliqué selon la même direction. Ce champ peut être créé par l'application d'une tension $V$ sur des électrodes déposées sur les deux facettes du cristal orthogonales à $\vbh{z}$. On parlera dans ce cas de **configuration longitudinale** puisque la direction de propagation de la lumière est identique à celle du champ externe $\vb{E}_a = E_a \vbh{z}$. La longueur du cristal (selon la direction de propagation) est $l$.
 
 Comme vu dans la section x.x, les axes principaux du cristal sont $\vbh{x}'$ et $\vbh{y}'$. Ce sont des axes propres par rapport à l'état de polarisation. Ainsi, une onde polarisée selon
 $$
@@ -48,8 +46,11 @@ $$ {#eq-}
 
 Comme les axes principaux sont orthogonaux, on pourra décomposer le champ d'une onde polarisée arbitrairement en entrée du cristal selon $\vbh{x}'$ et $\vbh{y}'$. Ainsi
 $$
-\vbh{D}\left(0\right) = D_{0x'}  \vbh{x}' + D_{0y'} \vbh{y}'.
+\vbh{D}\left(0\right) = D_{0x'}  \vbh{x}' + D_{0y'} \vbh{y}',
 $$ {#eq-}
+où $D_{0x'}$ et $D_{0y'}$ sont les amplitudes des projections du champ sur les directions $\vbh{x}'$ et $\vbh{y}'$.
+
+
 Les axes principaux étant par définition des axes propres, on pourra aisément calculer le champ à n'importe quelle position $z$ le long de la direction $\vbh{z}$. En particulier en sortie du cristal, pour $z = l$
 $$
 \vbh{D}\left(l\right) = D_{0x'}\; e^{-j\frac{2\pi}{\lambda_0} n_{x'}l}\; \vbh{x}' + D_{0y'} \; e^{-j\frac{2\pi}{\lambda_0} n_{y'}l}\;\vbh{y}'.
@@ -58,7 +59,7 @@ L'état de polarisation en sortie dépend du déphasage relatif entre les projec
 $$
 \Gamma\left(l\right) = \frac{2\pi}{\lambda_0}\left(n_{y'} - n_{x'}\right) l.
 $$ {#eq-long-kdp-retardation-def}
-Substituant les expressions des indices $n_{x}'$ et $n_{y}'$ selon @eq-long-kdp-nxp et @eq-long-kdp-nyp, 
+Substituant les expressions des indices $n_{x}'$ et $n_{y}'$ selon (@eq-long-kdp-nxp) et (@eq-long-kdp-nyp), 
 $$
 \Gamma\left(l\right)=\frac{2\pi}{\lambda_0}\;n_o^3 \;r_{63}E_{az}l.
 $$ {#eq-long-kdp-retardation}
