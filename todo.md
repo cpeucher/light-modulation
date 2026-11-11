@@ -8,13 +8,13 @@
 - [ ] Size of graphs generated inline using matplotlib
 - [ ] Extract only used references in a bib file. Should be done by preserving the `.bbl` file when rendering to PDF using LaTeX.
 - [ ] Book format with new chapters always starting on odd pages
-- [ ] Make sure front mater is numbered with roman numerals 
+- [ ] Make sure front matter is numbered with roman numerals 
 - [ ] Cross references without capitalization in French
 - [ ] Fix cross references to different chapters from the `index.qmd` file
 - [ ] CSL for lecture notes
 - [x] `\hat` not centered on `\mathbf` (for instance in the definition of `\vbh{}` macro) in PDF rendering when a capital letter is the argument, e.g. `\vbh{E}`. Works fine for lower case argument, e.g. `\vbh{x}`.
   
-    This seems to be linked to the use of the defualt `lualatex` engine. Solved by using the `xelatex`engine instead. 
+    This seems to be linked to the use of the default `lualatex` engine. Solved by using the `xelatex` engine instead. 
 
     In `_quarto.yml`:
 
