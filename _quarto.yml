@@ -9,6 +9,11 @@ lang: fr
 language:
   crossref-eq-prefix: ""
   crossref-fig-prefix: "figure"
+  crossref-ch-prefix: "chapitre"
+  crossref-sec-prefix: "section"
+
+crossref:
+  chapters: true
 
 book:
   title: "Modulation électro-optique"
